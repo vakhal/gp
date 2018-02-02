@@ -178,22 +178,22 @@ public class TaskClientObserver
 				 */
                 ICapabilityObserver anObserver = getObserverInstance(className);
 
-                if (anObserver != null)
-                System.out.println("[TaskClientObserver] instantiated the observer: " + anObserver.getStatus());
+                if (anObserver != null) {
+                    System.out.println("[TaskClientObserver] instantiated the observer: " + anObserver.getStatus());
 				/*
 				 * instantiate the observer by the parameters passed with
 				 * the task client notification message
 				 */
-                anObserver.setTaskId(taskId);
-                anObserver.setCapabilityId(capabilityId);
-                anObserver.setCapabilityUiDirectory(uiName);
-                anObserver.setCapabilityName(capabilityName);
+                    anObserver.setTaskId(taskId);
+                    anObserver.setCapabilityId(capabilityId);
+                    anObserver.setCapabilityUiDirectory(uiName);
+                    anObserver.setCapabilityName(capabilityName);
 
-                //Add the observer to list of observers
-                capabilityObservers.add(anObserver);
-                System.out.println("[TaskClientObserver] "
-                        + "adding the observer to the list: "
-                        + capabilityObservers.size());
+                    //Add the observer to list of observers
+                    capabilityObservers.add(anObserver);
+                    System.out.println("[TaskClientObserver] "
+                            + "adding the observer to the list: "
+                            + capabilityObservers.size());
 				/*
 				 * This if block deals with feeding the capability created
 				 * with the output of the previous capability. This is where
@@ -201,14 +201,14 @@ public class TaskClientObserver
 				 * Currently, it's almost hardcoded and only specified for
 				 * the GoToRoomDriveCapability.
 				 */
-                if (msg.containsKey("defaultInput")) {
-                    ConcurrentHashMap<Object, Object> defaultInput =
-                            (ConcurrentHashMap<Object, Object>)
-                                    msg.get("defaultInput");
+                    if (msg.containsKey("defaultInput")) {
+                        ConcurrentHashMap<Object, Object> defaultInput =
+                                (ConcurrentHashMap<Object, Object>)
+                                        msg.get("defaultInput");
 
-                    anObserver.setDeafultInput(defaultInput);
+                        anObserver.setDeafultInput(defaultInput);
+                    }
                 }
-
 				/*
 				 * When the command is UNLOAD_UI, the capability observer associated
 				 * with this command is updated by changing its status to COMPLETED.
@@ -255,10 +255,12 @@ public class TaskClientObserver
                 ICapabilityObserver anObserver =
                         getCapabilityObserverFromList(taskId, capabilityId);
 
-                ConcurrentHashMap<Object, Object> outputMap =
-                        (ConcurrentHashMap<Object, Object>) msg.get("output");
+                if (anObserver!=null) {
+                    ConcurrentHashMap<Object, Object> outputMap =
+                            (ConcurrentHashMap<Object, Object>) msg.get("output");
 
-                anObserver.setOutput(outputMap);
+                    anObserver.setOutput(outputMap);
+                }
 
             } else if (msg.get("cmd") ==
                     TaskClient.TaskClientCommands.CANCEL_TASK) {

@@ -665,19 +665,19 @@ public class TaskScriptOrchestrator {
             e.printStackTrace();
         }
 
-        if (capabilityList != null)
-        System.out.println("[TaskScriptOrchestrator] listPrimitives: capabilityList.size(" + capabilityList.size() + ")");
-        for (String resourcesUsedByCapability :
-                capabilityResourceTable.returnListOfResourcesCapabilityIsUsing(capabilityName)) {
-            capabilityList.removeAll(capabilityResourceTable.returnListOfCapabilitiesUsingSameResource(resourcesUsedByCapability));
-        }
+        if (capabilityList != null) {
+            System.out.println("[TaskScriptOrchestrator] listPrimitives: capabilityList.size(" + capabilityList.size() + ")");
+            for (String resourcesUsedByCapability :
+                    capabilityResourceTable.returnListOfResourcesCapabilityIsUsing(capabilityName)) {
+                capabilityList.removeAll(capabilityResourceTable.returnListOfCapabilitiesUsingSameResource(resourcesUsedByCapability));
+            }
 
-        Vector<String> primitiveList = new Vector<String>();
-        for (String aCapabilityList : capabilityList) {
-            primitiveList.add(dbo.retrievePrimitive(aCapabilityList));
         }
-
-        return primitiveList;
+            Vector<String> primitiveList = new Vector<String>();
+            for (String aCapabilityList : capabilityList) {
+                primitiveList.add(dbo.retrievePrimitive(aCapabilityList));
+            }
+            return primitiveList;
     }
 
     /**
@@ -935,6 +935,8 @@ public class TaskScriptOrchestrator {
             Element parameterName = dom.createElement("OutputName");
             parameterName.appendChild(dom.createTextNode(parameterInfo));
             parameter.appendChild(parameterName);
+            
+            assert taskNode != null;
             taskNode.appendChild(parameter);
         }
     }
