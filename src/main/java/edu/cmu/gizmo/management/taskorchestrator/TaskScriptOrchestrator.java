@@ -658,12 +658,14 @@ public class TaskScriptOrchestrator {
         if (capabilityName == null)
             return null;
 
-        try {
+        try
+        {
             capabilityList = dbo.listPrimitives();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        if (capabilityList != null)
         System.out.println("[TaskScriptOrchestrator] listPrimitives: capabilityList.size(" + capabilityList.size() + ")");
         for (String resourcesUsedByCapability :
                 capabilityResourceTable.returnListOfResourcesCapabilityIsUsing(capabilityName)) {
@@ -793,6 +795,7 @@ public class TaskScriptOrchestrator {
             Element parameterName = dom.createElement("ParameterName");
             parameterName.appendChild(dom.createTextNode(parameterInfo));
             parameter.appendChild(parameterName);
+            assert taskNode != null;
             taskNode.appendChild(parameter);
         }
     }
@@ -977,6 +980,7 @@ public class TaskScriptOrchestrator {
         failureFlagStatus.setValue("0");
         failureFlag.setAttributeNode(failureFlagStatus);
         failureFlag.appendChild(dom.createTextNode("Fatal"));
+        assert task != null;
         task.appendChild(failureFlag); // fail
 
         Element dependsOn = dom.createElement("DependsOn");
@@ -989,7 +993,7 @@ public class TaskScriptOrchestrator {
             Attr attrStatus = dom.createAttribute("status");
             attrStatus.setValue("1");
             dependsOn.setAttributeNode(attrStatus);
-
+            assert task != null;
             task.appendChild(dependsOn);
         }
     }

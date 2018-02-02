@@ -176,12 +176,10 @@ public class TaskClientObserver
 				/*
 				 * Create the capability observer by reflection
 				 */
-                ICapabilityObserver anObserver =
-                        getObserverInstance(className);
+                ICapabilityObserver anObserver = getObserverInstance(className);
 
-                System.out.println("[TaskClientObserver] "
-                        + "instantiated the observer: "
-                        + anObserver.getStatus());
+                if (anObserver != null)
+                System.out.println("[TaskClientObserver] instantiated the observer: " + anObserver.getStatus());
 				/*
 				 * instantiate the observer by the parameters passed with
 				 * the task client notification message
@@ -231,13 +229,12 @@ public class TaskClientObserver
 				 * Get the capability observer matching the passed taskId and
 				 * capabilityId
 				 */
-                ICapabilityObserver currentCapabilityObserver =
-                        getCapabilityObserverFromList(taskId, capabilityId);
+                ICapabilityObserver currentCapabilityObserver = getCapabilityObserverFromList(taskId, capabilityId);
 
-                System.out.println("[TaskClientObserver] Got a capability"
-                        + " observer to change the status");
-                System.out.println("[TaskClientObserver] "
-                        + currentCapabilityObserver.getStatus());
+                System.out.println("[TaskClientObserver] Got a capability observer to change the status");
+
+                if(currentCapabilityObserver != null)
+                System.out.println("[TaskClientObserver] " + currentCapabilityObserver.getStatus());
 
                 // set its status to COMPLETED
                 currentCapabilityObserver.setStatus(
@@ -443,6 +440,7 @@ public class TaskClientObserver
     public void setCapabilityObserverDefaultInput(int taskId, int capabilityId,
                                                   ConcurrentHashMap<Object, Object> defaultInput) {
         ICapabilityObserver anObserver = getCapabilityObserverFromList(taskId, capabilityId);
+        if(anObserver != null)
         anObserver.setDeafultInput(defaultInput);
     }
 
