@@ -1,0 +1,6 @@
+projectKey=gizmo2:gizmo2
+serverUrl=http://localhost:9000
+serverVersion=6.7.1.35068
+dashboardUrl=http://localhost:9000/dashboard/index/gizmo2:gizmo2
+ceTaskId=AWFW92YcgPv0M2pyza11
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWFW92YcgPv0M2pyza11
