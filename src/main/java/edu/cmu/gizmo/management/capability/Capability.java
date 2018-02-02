@@ -37,7 +37,6 @@ public abstract class Capability implements Runnable, MessageListener,
      */
     private MessageConsumer input;
 
-    ;
     /**
      * the task output sender.
      */
@@ -384,7 +383,7 @@ public abstract class Capability implements Runnable, MessageListener,
      * thread, which will cause the execute method to run
      */
     public synchronized void launch() {
-        if (launched == false) {
+        if (!launched) {
             new Thread(this).start();
         }
     }
@@ -510,4 +509,4 @@ public abstract class Capability implements Runnable, MessageListener,
         ERROR
     }
 
-};
+}
