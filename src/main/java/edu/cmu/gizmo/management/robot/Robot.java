@@ -19,11 +19,11 @@ public interface Robot {
      *
      * @param connection the connection to the robot
      */
-    public void connect(Socket connection);
+    void connect(Socket connection);
 
     /**
      * Terminate the connection to the robot.
      */
-    public void disconnect();
+    void disconnect();
 
 }

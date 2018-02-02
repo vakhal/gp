@@ -15,70 +15,70 @@ public interface ICapabilityObserver {
     /**
      * @return the output of the capability
      */
-    public Object getOutput();
+    Object getOutput();
 
     /**
      * @param output
      */
-    public void setOutput(Object output);
+    void setOutput(Object output);
 
     /**
      * @param anObservable CURRENTLY NOT USED
      */
-    public void observe(Observable anObservable);
+    void observe(Observable anObservable);
 
     /**
      * @return the UI status of the capability
      */
-    public CapabilityUIStatus getStatus();
+    CapabilityUIStatus getStatus();
 
     /**
      * @param status
      */
-    public void setStatus(CapabilityUIStatus status);
+    void setStatus(CapabilityUIStatus status);
 
     /**
      * @return the capability id
      */
-    public int getCapabilityId();
+    int getCapabilityId();
 
     /**
      * @param capabilityId
      */
-    public void setCapabilityId(int capabilityId);
+    void setCapabilityId(int capabilityId);
 
     /**
      * @return the task id
      */
-    public int getTaskId();
+    int getTaskId();
 
     /**
      * @param taskId
      */
-    public void setTaskId(int taskId);
+    void setTaskId(int taskId);
 
     /**
      * @return the capability UI file directory. Currently,
      * it's the JSP file name
      */
-    public String getCapabilityUiDirectory();
+    String getCapabilityUiDirectory();
 
     /**
      * @param directory
      */
-    public void setCapabilityUiDirectory(String directory);
+    void setCapabilityUiDirectory(String directory);
 
     /**
      * @param prevOutput Sets the output of the previous capability
      */
-    public void setDeafultInput(Object prevOutput);
+    void setDeafultInput(Object prevOutput);
 
     /**
      * @param capabilityName
      */
-    public void setCapabilityName(String capabilityName);
+    void setCapabilityName(String capabilityName);
 
-    public Object getDefaultInput();
+    Object getDefaultInput();
 
     /**
      * @author majedalzayer
@@ -89,7 +89,7 @@ public interface ICapabilityObserver {
      * and no more output is sent.
      * - ENDED: To mark the end of the capability
      */
-    public enum CapabilityUIStatus {
+    enum CapabilityUIStatus {
         STARTED, COMPLETED, ENDED
     }
 }

@@ -147,8 +147,6 @@ public class TaskExecutor implements Runnable, Comparable<TaskExecutor> {
         }
     }
 
-    ;
-
     /**
      * Get the task ID associated with this executor.
      *
@@ -157,8 +155,6 @@ public class TaskExecutor implements Runnable, Comparable<TaskExecutor> {
     public Integer getTaskId() {
         return taskId;
     }
-
-    ;
 
     /**
      * Get the owner of this task

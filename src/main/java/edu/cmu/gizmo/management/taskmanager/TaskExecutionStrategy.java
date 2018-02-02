@@ -85,4 +85,4 @@ abstract class TaskExecutionStrategy extends Observable {
      */
     public abstract void terminte(String reason);
 
-};
+}

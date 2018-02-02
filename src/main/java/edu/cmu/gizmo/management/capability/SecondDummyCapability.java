@@ -77,7 +77,7 @@ public class SecondDummyCapability extends Capability implements
      */
     @Override
     public String getCapabilityName() {
-        return new String();
+        return "";
     }
 
     /*
@@ -88,7 +88,7 @@ public class SecondDummyCapability extends Capability implements
      */
     @Override
     public String getCapabilityDescription() {
-        return new String();
+        return "";
     }
 
     /*
@@ -98,8 +98,7 @@ public class SecondDummyCapability extends Capability implements
      */
     @Override
     public Object pause() {
-        final ConcurrentHashMap<Object, Object> hp = new ConcurrentHashMap<Object, Object>();
-        return hp;
+        return new ConcurrentHashMap<Object, Object>();
     }
 
     /*

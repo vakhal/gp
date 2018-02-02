@@ -21,7 +21,6 @@ public class RobotFactory {
      */
     private final static Integer ROBOT_CONTROL_PORT = 4242;
 
-    ;
     /**
      * The Constant MANAGER_PORT.
      */

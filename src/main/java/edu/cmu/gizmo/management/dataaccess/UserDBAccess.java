@@ -17,7 +17,7 @@ public interface UserDBAccess {
      * @param password password to be verified
      * @return status of the password checking
      */
-    public boolean correctPassword(String password);
+    boolean correctPassword(String password);
 
     /**
      * register a new user.
@@ -32,8 +32,8 @@ public interface UserDBAccess {
      * </ul>
      * @post The user will be assigned an ID by the system
      */
-    public boolean addUser(String password, String email, String firstName,
-                           String lastName);
+    boolean addUser(String password, String email, String firstName,
+                    String lastName);
 
     /**
      * Make CoBot 3 say something through its speech synthesizer.
@@ -48,7 +48,7 @@ public interface UserDBAccess {
      * @rationale This command is needed to update the password of the existing
      * user.
      */
-    public boolean updatePassword(String oldPassword, String newPassword);
+    boolean updatePassword(String oldPassword, String newPassword);
 
     /**
      * Checks whether the user has admin previlege or not.
@@ -56,7 +56,7 @@ public interface UserDBAccess {
      * @param Id the id of the user
      * @return status of the operation
      */
-    public boolean isAdmin(String Id);
+    boolean isAdmin(String Id);
 
     /**
      * Checks whether the user is active or not.
@@ -70,7 +70,7 @@ public interface UserDBAccess {
      * @rationale This command is needed to update the password of the existing
      * user.
      */
-    public boolean isActive(String Id);
+    boolean isActive(String Id);
 
     /**
      * Add a role to the user.
@@ -83,7 +83,7 @@ public interface UserDBAccess {
      * </ul>
      * @post The user has a new role
      */
-    public boolean addRole(String id, String role);
+    boolean addRole(String id, String role);
 
     /**
      * function used by the admin to check who are logged into the management
@@ -91,7 +91,7 @@ public interface UserDBAccess {
      *
      * @return a list of user id
      */
-    public ArrayList<Integer> activeUsers();
+    ArrayList<Integer> activeUsers();
 
     /**
      * Check the status of the user.
@@ -102,6 +102,6 @@ public interface UserDBAccess {
      * <li>The user should exist with a password.
      * </ul>
      */
-    public boolean isLocked(int id);
+    boolean isLocked(int id);
 
 }

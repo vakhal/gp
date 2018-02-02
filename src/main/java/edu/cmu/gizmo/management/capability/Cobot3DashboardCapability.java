@@ -97,7 +97,7 @@ public class Cobot3DashboardCapability extends Capability {
         //
         System.out.println("[Cobot3DashboardCapability] executing");
         running = true;
-        while (running == true) {
+        while (running) {
             while ((getStatus() == CapabilityStatus.RUNNING) && running) {
                 try {
 

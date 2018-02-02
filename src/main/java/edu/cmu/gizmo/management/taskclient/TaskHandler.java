@@ -23,7 +23,6 @@ public class TaskHandler {
      */
     private final Integer taskId;
 
-    ;
     /**
      * The capabilities associated with this task.
      */

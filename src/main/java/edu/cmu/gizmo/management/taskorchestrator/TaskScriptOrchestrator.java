@@ -53,13 +53,11 @@ public class TaskScriptOrchestrator {
      */
     private Document dom = null;
 
-    ;
     /**
      * TaskResolver is used for the primitive name
      */
     private TaskResolver tr = null;
 
-    ;
     /**
      * TaskCapabilityDBAccess is used to retrieve capability name
      */
@@ -208,7 +206,7 @@ public class TaskScriptOrchestrator {
         node.appendChild(groupedTask);
 
         Element groupedTaskId = dom.createElement("GroupedTaskID");
-        groupedTaskId.appendChild(dom.createTextNode(new Integer(numOfGroupedTask).toString()));
+        groupedTaskId.appendChild(dom.createTextNode(Integer.toString(numOfGroupedTask)));
         groupedTask.appendChild(groupedTaskId);
     }
 
@@ -401,8 +399,7 @@ public class TaskScriptOrchestrator {
     public PlannedTasks loadExistingTaskPlannedTaskObject(String fileName) {
         taskScriptParser.setTaskPlan(fileName);
         taskScriptParser.parse();
-        PlannedTasks plannedTasks = taskScriptParser.getPlannedTasks();
-        return plannedTasks;
+        return taskScriptParser.getPlannedTasks();
     }
 
     /**
@@ -475,7 +472,7 @@ public class TaskScriptOrchestrator {
             Node taskNameNode = taskNode.getChildNodes().item(1);
             System.out.println("taskNameNode.getNodeName(): " + taskNameNode.getNodeName());
 
-            if (taskNameNode.getTextContent().equals(taskName.toString())) {
+            if (taskNameNode.getTextContent().equals(taskName)) {
                 groupedTaskNode.removeChild(taskNode);
             }
 
@@ -671,10 +668,7 @@ public class TaskScriptOrchestrator {
         System.out.println("[TaskScriptOrchestrator] listPrimitives: capabilityList.size(" + capabilityList.size() + ")");
         for (String resourcesUsedByCapability :
                 capabilityResourceTable.returnListOfResourcesCapabilityIsUsing(capabilityName)) {
-            for (String capabilitySharingSameResource :
-                    capabilityResourceTable.returnListOfCapabilitiesUsingSameResource(resourcesUsedByCapability)) {
-                capabilityList.remove(capabilitySharingSameResource);
-            }
+            capabilityList.removeAll(capabilityResourceTable.returnListOfCapabilitiesUsingSameResource(resourcesUsedByCapability));
         }
 
         Vector<String> primitiveList = new Vector<String>();
@@ -703,9 +697,8 @@ public class TaskScriptOrchestrator {
         String currGroupedTaskIdString = currGroupedTaskIdNode.getTextContent();
         Node currTaskNode = currGroupedTaskNode.getChildNodes().item(taskNum.intValue() + 1);
         Node currTaskNameNode = currTaskNode.getChildNodes().item(1);
-        String currTaskNameNodeString = currTaskNameNode.getTextContent();
 
-        return currTaskNameNodeString;
+        return currTaskNameNode.getTextContent();
     }
 
     /**
@@ -969,7 +962,7 @@ public class TaskScriptOrchestrator {
 
         int index = groupedTaskNode.getChildNodes().getLength() - 1;
         Element taskId = dom.createElement("TaskID");
-        taskId.appendChild(dom.createTextNode(new Integer(numOfTask).toString()));
+        taskId.appendChild(dom.createTextNode(Integer.toString(numOfTask)));
         task.appendChild(taskId);
 
         Element taskName = dom.createElement("TaskName");

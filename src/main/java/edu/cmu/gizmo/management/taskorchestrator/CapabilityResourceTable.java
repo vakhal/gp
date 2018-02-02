@@ -243,8 +243,7 @@ public class CapabilityResourceTable {
             String key = (String) entry.getKey();
 
             if (key.toLowerCase().equals(capabilityName.toLowerCase())) {
-                Vector<String> value = (Vector<String>) inputLookup.get((Object) key);
-                return value;
+                return (Vector<String>) inputLookup.get((Object) key);
             }
         }
         return null;
@@ -260,8 +259,7 @@ public class CapabilityResourceTable {
         for (Map.Entry<String, Vector<String>> entry : outputLookup.entrySet()) {
             String key = (String) entry.getKey();
             if (key.toLowerCase().equals(capabilityName.toLowerCase())) {
-                Vector<String> value = (Vector<String>) outputLookup.get((Object) key);
-                return value;
+                return (Vector<String>) outputLookup.get((Object) key);
             }
         }
         return null;
@@ -295,8 +293,7 @@ public class CapabilityResourceTable {
         for (Map.Entry<String, Vector<String>> entry : keyValueLookup.entrySet()) {
             String key = (String) entry.getKey();
             if (key.toLowerCase().equals(keyValue.toLowerCase())) {
-                Vector<String> value = (Vector<String>) keyValueLookup.get((Object) key);
-                return value;
+                return (Vector<String>) keyValueLookup.get((Object) key);
             }
         }
         return null;
@@ -312,8 +309,7 @@ public class CapabilityResourceTable {
         for (Map.Entry<String, Vector<String>> entry : capabilityLookup.entrySet()) {
             String key = (String) entry.getKey();
             if (key.toLowerCase().equals(capabilityName.toLowerCase())) {
-                Vector<String> value = (Vector<String>) capabilityLookup.get((Object) key);
-                return value;
+                return (Vector<String>) capabilityLookup.get((Object) key);
             }
         }
         return null;

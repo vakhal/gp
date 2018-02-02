@@ -346,7 +346,7 @@ public class Cobot3Robot implements Robot {
                     System.out.println(
                             "[Cobot3Robot] getCommandStatus timeout");
                 } catch (NullPointerException e) {
-                    if (cobotSocket.isConnected() == false)
+                    if (!cobotSocket.isConnected())
                         break;
                 }
             }

@@ -37,8 +37,7 @@ public class TaskOrchestrationPreReqChecker {
      */
     public boolean verifyExistenceOfScriptTaskNameInFileSystem(TaskDef taskDef) {
         String scriptName = taskDef.getTaskScriptName();
-        boolean exists = new File(scriptName).exists();
-        return exists;
+        return new File(scriptName).exists();
 
     }
 
@@ -69,8 +68,7 @@ public class TaskOrchestrationPreReqChecker {
         String fullCapabilityName = config.get("capability.directory") + "/" + capabilityName + ".class";
 
         System.out.println("fullCapabilityName: " + fullCapabilityName);
-        boolean exists = new File(fullCapabilityName).exists();
-        return exists;
+        return new File(fullCapabilityName).exists();
     }
 
 }

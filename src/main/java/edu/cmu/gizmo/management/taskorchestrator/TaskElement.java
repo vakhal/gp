@@ -13,9 +13,7 @@ public interface TaskElement {
      *
      * @return true if the task loaded successfully, false otherwise.
      */
-    public Boolean load();
-
-    ;
+    Boolean load();
 
     /**
      * Unload a loaded TaskElement. Implementers of this interface need to know
@@ -23,16 +21,16 @@ public interface TaskElement {
      *
      * @return
      */
-    public Boolean unload();
+    Boolean unload();
 
     /**
      * Return the type of this task Element
      *
      * @return
      */
-    public TaskElementType getType();
+    TaskElementType getType();
 
-    public static enum TaskElementType {
+    enum TaskElementType {
         SCRIPT,
         PRIMITIVE
     }

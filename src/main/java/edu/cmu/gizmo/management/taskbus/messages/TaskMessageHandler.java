@@ -14,5 +14,5 @@ public interface TaskMessageHandler {
      *
      * @param message the message
      */
-    public void handleMessage(TaskMessage message);
+    void handleMessage(TaskMessage message);
 }

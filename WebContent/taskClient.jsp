@@ -101,7 +101,7 @@
 					 }
 					 
 				 }
-		   )
+		   );
 		   
 		   //The task is cancelled. Has to be terminated!
 		   if (taskStatusCode == 'CANCELLED')

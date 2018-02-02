@@ -36,4 +36,4 @@ class Tasks {
     public void setState(Object state) {
         this.state = state;
     }
-};
+}

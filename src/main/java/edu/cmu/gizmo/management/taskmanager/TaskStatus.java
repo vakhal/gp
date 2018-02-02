@@ -17,7 +17,6 @@ public class TaskStatus {
      */
     private TaskStatusValue status;
 
-    ;
     /**
      * The status message associated with the status value.
      */

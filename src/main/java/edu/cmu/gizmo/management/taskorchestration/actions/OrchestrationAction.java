@@ -151,7 +151,7 @@ public class OrchestrationAction extends GizmoAction {
                 orchStep = new OrchestrationStep();
 
                 //set the save status based on the saving result
-                if (result == true) {
+                if (result) {
                     orchStep.setSaveStatus(OrchestrationStatus.SUCCESS);
                 } else {
                     orchStep.setSaveStatus(OrchestrationStatus.FAILURE);

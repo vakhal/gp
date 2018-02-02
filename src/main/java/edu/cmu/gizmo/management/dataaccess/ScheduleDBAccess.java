@@ -42,7 +42,7 @@ public interface ScheduleDBAccess {
      * @param druration the duration
      * @return the earliest date the task can be scheduled
      */
-    public Date findEarliestTime(int druration);
+    Date findEarliestTime(int druration);
 
     /**
      * Scheduled configuration information.
@@ -52,8 +52,8 @@ public interface ScheduleDBAccess {
      * @param parameterName  parameter name of the task
      * @param parameterValue parameter value of the task
      */
-    public void setParameterForScheduledTask(String user, Timestamp startTime,
-                                             String parameterName, String parameterValue);
+    void setParameterForScheduledTask(String user, Timestamp startTime,
+                                      String parameterName, String parameterValue);
 
     /**
      * Return the next task for a given user name.
@@ -61,7 +61,7 @@ public interface ScheduleDBAccess {
      * @param user the user for which to return the next task
      * @return A TaskReservation for the next task or null if one does not exist
      */
-    public TaskReservation loadNextScheduledTask(String user);
+    TaskReservation loadNextScheduledTask(String user);
 
     /**
      * Create schedule entry.
@@ -72,8 +72,8 @@ public interface ScheduleDBAccess {
      * @return return true, if the task is scheduled. return false, if the task
      * cannot be scheduled.
      */
-    public boolean addScheduleEntry(String userName, Timestamp taskStartTime,
-                                    Integer taskDuration, String taskName, String scriptName);
+    boolean addScheduleEntry(String userName, Timestamp taskStartTime,
+                             Integer taskDuration, String taskName, String scriptName);
 
 
     /**
@@ -85,6 +85,6 @@ public interface ScheduleDBAccess {
      * @return return true, if the task is scheduled. return false, if the task
      * cannot be scheduled.
      */
-    public void deleteScheduleEntry(String userName, Timestamp taskStartTime,
-                                    Integer taskDuration, String taskName, String scriptName);
+    void deleteScheduleEntry(String userName, Timestamp taskStartTime,
+                             Integer taskDuration, String taskName, String scriptName);
 }

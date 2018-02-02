@@ -93,7 +93,7 @@ public class QueryGoogleCalendarCapability extends Capability {
 
         while (true) {
 
-            if (newInputFromUser == false) {
+            if (!newInputFromUser) {
                 try {
                     Thread.sleep(100);
                 } catch (final InterruptedException e) {

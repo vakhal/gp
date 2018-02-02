@@ -195,11 +195,8 @@ public abstract class AbstractCapabilityObserver
 
         if (object instanceof ICapabilityObserver) {
             ICapabilityObserver anObserver = (ICapabilityObserver) object;
-            if (anObserver.getCapabilityId() == this.getCapabilityId()
-                    && anObserver.getTaskId() == this.getTaskId()) {
-                return true;
-            }
-            return false;
+            return anObserver.getCapabilityId() == this.getCapabilityId()
+                    && anObserver.getTaskId() == this.getTaskId();
         }
         return false;
 

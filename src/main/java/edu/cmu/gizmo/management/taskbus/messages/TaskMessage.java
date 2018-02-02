@@ -19,103 +19,103 @@ public interface TaskMessage extends Serializable {
     /**
      * The Constant CAPABILITY_OUTPUT.
      */
-    public static final String CAPABILITY_OUTPUT = "CAPABILITY_OUTPUT";
+    String CAPABILITY_OUTPUT = "CAPABILITY_OUTPUT";
 
     /**
      * The Constant CAPABILITY_INPUT.
      */
-    public static final String CAPABILITY_INPUT = "CAPABILITY_INPUT";
+    String CAPABILITY_INPUT = "CAPABILITY_INPUT";
 
     /**
      * The Constant CAPABILITY_STATUS.
      */
-    public static final String CAPABILITY_STATUS = "CAPABILITY_STATUS";
+    String CAPABILITY_STATUS = "CAPABILITY_STATUS";
 
     /**
      * The Constant CAPABILITY_COMPLETE.
      */
-    public static final String CAPABILITY_COMPLETE = "CAPABILITY_COMPLETE";
+    String CAPABILITY_COMPLETE = "CAPABILITY_COMPLETE";
 
     /**
      * The Constant TERMINATE_CAPABILITY.
      */
-    public static final String TERMINATE_CAPABILITY = "TERMINATE_CAPABILITY";
+    String TERMINATE_CAPABILITY = "TERMINATE_CAPABILITY";
 
     /**
      * The Constant START_CAPABILITY.
      */
-    public static final String START_CAPABILITY = "START_CAPABILITY";
+    String START_CAPABILITY = "START_CAPABILITY";
 
     /**
      * The Constant HELO_CLIENT.
      */
-    public static final String HELO_CLIENT = "HELO_CLIENT";
+    String HELO_CLIENT = "HELO_CLIENT";
 
     /**
      * The Constant LOAD_TASK.
      */
-    public static final String LOAD_TASK = "LOAD_TASK";
+    String LOAD_TASK = "LOAD_TASK";
 
     /**
      * The Constant TASK_READY.
      */
-    public static final String TASK_READY = "TASK_READY";
+    String TASK_READY = "TASK_READY";
 
     /**
      * The Constant PAUSE_TASK.
      */
-    public static final String PAUSE_TASK = "PAUSE_TASK";
+    String PAUSE_TASK = "PAUSE_TASK";
 
     /**
      * The Constant PAUSE_TASK_COMPLETE.
      */
-    public static final String PAUSE_TASK_COMPLETE = "TASK_PAUSED";
+    String PAUSE_TASK_COMPLETE = "TASK_PAUSED";
 
     /**
      * The Constant PAUSE_LIST.
      */
-    public static final String PAUSE_LIST = "PAUSE_LIST";
+    String PAUSE_LIST = "PAUSE_LIST";
 
     /**
      * The Constant RESUME_TASK.
      */
-    public static final String RESUME_TASK = "RESUME_TASK";
+    String RESUME_TASK = "RESUME_TASK";
 
     /**
      * The Constant RESUME_TASK_COMPLETE.
      */
-    public static final String RESUME_TASK_COMPLETE = "TASK_RESUMED";
+    String RESUME_TASK_COMPLETE = "TASK_RESUMED";
 
     /**
      * The Constant CANCEL_TASK.
      */
-    public static final String CANCEL_TASK = "CANCEL_TASK";
+    String CANCEL_TASK = "CANCEL_TASK";
 
     /**
      * The Constant CLIENT_REPLAN.
      */
-    public static final String CLIENT_REPLAN = "CLIENT_REPLAN";
+    String CLIENT_REPLAN = "CLIENT_REPLAN";
 
     /**
      * The Constant SYSTEM_REPLAN.
      */
-    public static final String SYSTEM_REPLAN = "SYSTEM_REPLAN";
+    String SYSTEM_REPLAN = "SYSTEM_REPLAN";
 
     /**
      * The Constant TASK_COMPLETE.
      */
-    public static final String TASK_COMPLETE = "TASK_COMPLETE";
+    String TASK_COMPLETE = "TASK_COMPLETE";
 
     /**
      * The Constant START_CAPABILITY.
      */
-    public static final String REJECT_TASK = "REJECT_TASK";
+    String REJECT_TASK = "REJECT_TASK";
 
     /**
      * Gets the message type.
      *
      * @return the message type
      */
-    public String getMessageType();
+    String getMessageType();
 
 }

@@ -67,7 +67,7 @@ public class DummyCapability extends Capability implements PausableCapability {
      */
     @Override
     public String getCapabilityName() {
-        return new String();
+        return "";
     }
 
     /*
@@ -78,7 +78,7 @@ public class DummyCapability extends Capability implements PausableCapability {
      */
     @Override
     public String getCapabilityDescription() {
-        return new String();
+        return "";
     }
 
     /*
@@ -88,8 +88,7 @@ public class DummyCapability extends Capability implements PausableCapability {
      */
     @Override
     public Object pause() {
-        final ConcurrentHashMap<Object, Object> hp = new ConcurrentHashMap<Object, Object>();
-        return hp;
+        return new ConcurrentHashMap<Object, Object>();
     }
 
     /*

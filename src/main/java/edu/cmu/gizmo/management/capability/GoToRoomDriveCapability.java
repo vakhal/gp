@@ -109,7 +109,7 @@ public class GoToRoomDriveCapability extends Capability implements
 
         running = true;
         // while the capability is executing
-        while (running == true) {
+        while (running) {
 
             if (getStatus() == CapabilityStatus.RUNNING) {
 

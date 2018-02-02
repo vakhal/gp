@@ -15,13 +15,13 @@ public interface GizmoTaskClient {
     /**
      * End all outstanding tasks.
      */
-    public abstract void endTasks();
+    void endTasks();
 
     /**
      * start a new task via a reservation.
      *
      * @param rsvp the <code>TaskReservation</code>
      */
-    public abstract void loadNewTask(TaskReservation rsvp);
+    void loadNewTask(TaskReservation rsvp);
 
 }

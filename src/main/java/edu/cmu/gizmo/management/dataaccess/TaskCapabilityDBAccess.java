@@ -81,11 +81,11 @@ import java.util.Vector;
  */
 public interface TaskCapabilityDBAccess {
 
-    public String retrievePrimitive(String capability);
+    String retrievePrimitive(String capability);
 
-    public Vector<String> listPrimitivesFromPrimitveCapabilityTB();
+    Vector<String> listPrimitivesFromPrimitveCapabilityTB();
 
-    public Vector<String> listPrimitives();
+    Vector<String> listPrimitives();
 
     /**
      * Insert capability-primitive mapping.
@@ -93,7 +93,7 @@ public interface TaskCapabilityDBAccess {
      * @param pc the pc
      * @return the status of the operation
      */
-    public void insertPrimitiveCapability(PrimitiveCapability pc);
+    void insertPrimitiveCapability(PrimitiveCapability pc);
 
 
     /**
@@ -102,15 +102,15 @@ public interface TaskCapabilityDBAccess {
      * @param td TaskDef
      * @return the status of the operation
      */
-    public void insertTaskDef(TaskDef td);
+    void insertTaskDef(TaskDef td);
 
 
-    public boolean findCapabilityByCapaiblityName(String capabilityName);
+    boolean findCapabilityByCapaiblityName(String capabilityName);
 
     /**
      * Close.
      */
-    public void close();
+    void close();
 
 
     /**
@@ -119,7 +119,7 @@ public interface TaskCapabilityDBAccess {
      * @param primitive the primitive
      * @return the string
      */
-    public String retrieveCapability(String primitive);
+    String retrieveCapability(String primitive);
 
     /**
      * Compose a new task (FindJane).
@@ -128,7 +128,7 @@ public interface TaskCapabilityDBAccess {
      * @param taskList the task list
      * @return the status of the operation
      */
-    public boolean composeTask(String taskName, ArrayList<Task> taskList);
+    boolean composeTask(String taskName, ArrayList<Task> taskList);
 
     /**
      * Find information about a task or grouped task.
@@ -136,7 +136,7 @@ public interface TaskCapabilityDBAccess {
      * @param taskID task ID of the task searched for
      * @return returns true if the task is found, false if not.
      */
-    public boolean findTask(int taskID);
+    boolean findTask(int taskID);
 
     /**
      * Find information about a task or grouped task.
@@ -144,7 +144,7 @@ public interface TaskCapabilityDBAccess {
      * @param taskDef bean
      * @return returns true if the task is found, false if not.
      */
-    public boolean findTaskByTaskName(String taskName);
+    boolean findTaskByTaskName(String taskName);
 
     /**
      * Find a dependency.
@@ -152,7 +152,7 @@ public interface TaskCapabilityDBAccess {
      * @param taskID task ID of the task you want to find the dependsOn tag value
      * @return returns a value of the dependsOn tag value
      */
-    public int findDependendsOn(int taskID);
+    int findDependendsOn(int taskID);
 
     /**
      * Scheduled configuration information.
@@ -161,8 +161,8 @@ public interface TaskCapabilityDBAccess {
      * @param taskParameterName  name of the parameter for the task
      * @param taskParameterValue value of the parameter for the task
      */
-    public void setParameter(int taskID, String taskParameterName,
-                             String taskParameterValue);
+    void setParameter(int taskID, String taskParameterName,
+                      String taskParameterValue);
 
     /**
      * Create schedule entry.
@@ -181,9 +181,9 @@ public interface TaskCapabilityDBAccess {
      * tasks. It will also make a series of entries to the task table
      * linking groupedTaskID with the tasks.
      */
-    public void createItinerary(String groupedTaskName, ArrayList<Flag> flags,
-                                ArrayList<Action> acitons, ArrayList<DependsOn> dependsOns,
-                                ArrayList<Task> tasks);
+    void createItinerary(String groupedTaskName, ArrayList<Flag> flags,
+                         ArrayList<Action> acitons, ArrayList<DependsOn> dependsOns,
+                         ArrayList<Task> tasks);
 
     /**
      * Schedule a task.
@@ -194,7 +194,7 @@ public interface TaskCapabilityDBAccess {
      * @return true if the operation is successful, false if the operation fails
      * @rationale Add an entry to the schedule database of the
      */
-    public boolean scheduleTask(Date startTime, int minutes, int groupedTaskID);
+    boolean scheduleTask(Date startTime, int minutes, int groupedTaskID);
 
     /**
      * Find grouped task are available.
@@ -203,7 +203,7 @@ public interface TaskCapabilityDBAccess {
      * @return true if the groupedTask is available, false if the goupredTask is
      * not available
      */
-    public boolean isGroupedTaskAvailable(String groupedTaskName);
+    boolean isGroupedTaskAvailable(String groupedTaskName);
 
     /**
      * Add a capability to a grouped task First Need to confirm whether the
@@ -215,7 +215,7 @@ public interface TaskCapabilityDBAccess {
      * @return true, if the task is added to the groupedTask. false, if the task
      * cannot be added to the groupedTask
      */
-    public boolean addTaskToGroupedTask(int groupedTaskId, int taskId);
+    boolean addTaskToGroupedTask(int groupedTaskId, int taskId);
 
     /**
      * Add a capability to a grouped task First Need to confirm whether the
@@ -227,7 +227,7 @@ public interface TaskCapabilityDBAccess {
      * @return true, if the task is added to the groupedTask. false, if the task
      * cannot be added to the groupedTask
      */
-    public boolean addTaskToGroupedTask(String groupedTaskName, String taskName);
+    boolean addTaskToGroupedTask(String groupedTaskName, String taskName);
 
     /**
      * Find task name using ID.
@@ -235,7 +235,7 @@ public interface TaskCapabilityDBAccess {
      * @param taskID task ID of the task searched for
      * @return taskName task name of the task searched for
      */
-    public String findTaskName(int taskID);
+    String findTaskName(int taskID);
 
     /**
      * Find status msg for task name.
@@ -244,7 +244,7 @@ public interface TaskCapabilityDBAccess {
      * @param status   status of the task searched for
      * @return taskMsg task message of the task for the status value
      */
-    public String findTaskMsg(String taskName, int status);
+    String findTaskMsg(String taskName, int status);
 
     /**
      * Find status value for task name with a certain task msg.
@@ -253,7 +253,7 @@ public interface TaskCapabilityDBAccess {
      * @param msg      task msg of the task searched for
      * @return flagStatus value of the flagStatus with the msg
      */
-    public int findStatusValue(String taskName, String msg);
+    int findStatusValue(String taskName, String msg);
 
     /**
      * Find action msg for task name.
@@ -262,7 +262,7 @@ public interface TaskCapabilityDBAccess {
      * @param actionStatus action status value of the task searched for
      * @return taskMsg task msg of the task searched for
      */
-    public String findTaskActionMsg(String taskName, int actionStatus);
+    String findTaskActionMsg(String taskName, int actionStatus);
 
     /**
      * Find action status for task name.
@@ -271,7 +271,7 @@ public interface TaskCapabilityDBAccess {
      * @param actionMsg action msg of the task searched for
      * @return taskStatus task status of the task searched for
      */
-    public int findTaskActionStatus(String taskName, String actionMsg);
+    int findTaskActionStatus(String taskName, String actionMsg);
 
     /**
      * Find grouped dependson.
@@ -279,7 +279,7 @@ public interface TaskCapabilityDBAccess {
      * @param groupedTaskId groupedTask Id of the gropuedTask searched for
      * @return groupedTaskId of the groupedTask that depends on
      */
-    public int findGroupedDependsOn(int groupedTaskId);
+    int findGroupedDependsOn(int groupedTaskId);
 
     /**
      * Find grouped id.
@@ -287,7 +287,7 @@ public interface TaskCapabilityDBAccess {
      * @param taskId task ID of the task searched for
      * @return groupedTaskId returns the gorupedTaskId of the task
      */
-    public int findGroupedIdForTaskId(int taskId);
+    int findGroupedIdForTaskId(int taskId);
 
     /**
      * isParameterSet (Task Name).
@@ -297,7 +297,7 @@ public interface TaskCapabilityDBAccess {
      * @return returns true if the parameter of the task is set. false, if the
      * parameter of the task is not set.
      */
-    public boolean isParameterSet(String taskName, String parameterName);
+    boolean isParameterSet(String taskName, String parameterName);
 
     /**
      * setParameter (task Name, Parameter Name, Parameter Value).
@@ -306,8 +306,8 @@ public interface TaskCapabilityDBAccess {
      * @param parameterName  name of the parameter
      * @param parameterValue value of the parameter
      */
-    public void setParameterForTask(String taskName, String parameterName,
-                                    String parameterValue);
+    void setParameterForTask(String taskName, String parameterName,
+                             String parameterValue);
 
     /**
      * return grouped task plan.
@@ -315,6 +315,6 @@ public interface TaskCapabilityDBAccess {
      * @param groupedTaskId groupedTask Id of the groupedTask
      * @return GroupedTask object
      */
-    public GroupedTask retrieveGroupedTask(int groupedTaskId);
+    GroupedTask retrieveGroupedTask(int groupedTaskId);
 
 }

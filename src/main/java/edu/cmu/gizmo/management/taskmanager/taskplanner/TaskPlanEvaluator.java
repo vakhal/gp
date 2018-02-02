@@ -24,6 +24,6 @@ public interface TaskPlanEvaluator {
      * @return the task plan
      * @see TaskExecutor
      */
-    public TaskPlan generate(TaskExecutor newTask,
-                             Collection<TaskExecutor> runningTasks);
+    TaskPlan generate(TaskExecutor newTask,
+                      Collection<TaskExecutor> runningTasks);
 }

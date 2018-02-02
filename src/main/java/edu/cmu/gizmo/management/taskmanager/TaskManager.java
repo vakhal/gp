@@ -38,7 +38,6 @@ public class TaskManager implements Observer, MessageListener {
      */
     private final TaskPlanner taskPlanner;
 
-    ;
     /**
      * The connection to the task bus.
      */
@@ -240,7 +239,7 @@ public class TaskManager implements Observer, MessageListener {
         try {
             final TaskStatus status = (TaskStatus) update;
 
-            if (bus.isConnected() == false) {
+            if (!bus.isConnected()) {
                 return;
             }
 

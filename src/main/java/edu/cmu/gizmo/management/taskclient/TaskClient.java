@@ -289,8 +289,6 @@ public class TaskClient extends Observable
         }
     }
 
-    ;
-
     /**
      * Terminate the running tasks.
      */
@@ -423,7 +421,7 @@ public class TaskClient extends Observable
      */
     public void loadDashboard() {
 
-        if (dashboardLoaded == false) {
+        if (!dashboardLoaded) {
 
             System.out.println("[TaskClient] Starting CoBot dashboard");
             loadNewTask(

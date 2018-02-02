@@ -18,13 +18,13 @@ public interface PausableCapability {
      * @return an Object containing the state needed to resume the paused
      * capability
      */
-    public Object pause();
+    Object pause();
 
     /**
      * Resume a paused capability.
      *
      * @param state the state to use to resume the capability.
      */
-    public void resume(Object state);
+    void resume(Object state);
 
 }

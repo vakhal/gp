@@ -19,7 +19,6 @@ public class CapabilityHandler {
      */
     private final Integer capabilityId;
 
-    ;
     /**
      * The name of this capability.
      */
@@ -119,6 +118,6 @@ public class CapabilityHandler {
         /**
          * error
          */
-        ERROR;
+        ERROR
     }
 }

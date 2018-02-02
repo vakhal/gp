@@ -22,11 +22,11 @@ public interface RobotTaskProxy extends GizmoTaskClient {
      *
      * @param taskChannel the socket connection on which to receive tasking.
      */
-    public void installTaskProxy(Socket taskChannel);
+    void installTaskProxy(Socket taskChannel);
 
     /**
      * Terminate the tsk proxy
      */
-    public void uninstallTaskProxy();
+    void uninstallTaskProxy();
 
 }

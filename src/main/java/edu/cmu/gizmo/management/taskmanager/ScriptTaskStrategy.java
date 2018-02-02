@@ -228,10 +228,9 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
                                     notifyObservers(update);
                                 }
 
-                                int groupedTaskIdInt = new Integer(
-                                        ((Node) groupedTaskIdNodeList
-                                                .item(groupedTaskIdListCounter))
-                                                .getNodeValue()).intValue();
+                                int groupedTaskIdInt = Integer.parseInt(((Node) groupedTaskIdNodeList
+                                        .item(groupedTaskIdListCounter))
+                                        .getNodeValue());
                                 groupedTaskObj
                                         .setGroupedTaskId(groupedTaskIdInt);
                             }
@@ -277,14 +276,11 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
                                                             .getAttribute("id"));
                                     DependsOn dependsOn = new DependsOn();
                                     dependsOn
-                                            .setId(new Integer(dependsOnElement
-                                                    .getAttribute("id"))
-                                                    .intValue());
+                                            .setId(Integer.parseInt(dependsOnElement
+                                                    .getAttribute("id")));
                                     dependsOn
-                                            .setStatus(new Integer(
-                                                    dependsOnElement
-                                                            .getAttribute("id"))
-                                                    .intValue());
+                                            .setStatus(Integer.parseInt(dependsOnElement
+                                                    .getAttribute("id")));
                                     taskObj.setDependsOn(dependsOn);
                                 }
 
@@ -312,9 +308,8 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
                                                     + ((Node) taskIdList.item(0))
                                                     .getNodeValue());
 
-                                    taskIdInt = new Integer(
-                                            ((Node) taskIdList.item(0))
-                                                    .getNodeValue()).intValue();
+                                    taskIdInt = Integer.parseInt(((Node) taskIdList.item(0))
+                                            .getNodeValue());
                                     taskObj.setTaskId(taskIdInt);
                                 }
                                 // --------------
@@ -440,8 +435,8 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
                                     } else {
                                         flag.setMsg(((Node) flagList.item(0))
                                                 .getNodeValue());
-                                        flag.setStatus(new Integer(flagElement
-                                                .getAttribute("status")).intValue());
+                                        flag.setStatus(Integer.parseInt(flagElement
+                                                .getAttribute("status")));
 
                                         flagArrayList.add(flag);
                                         taskObj.setFlagArrayList(flagArrayList);
@@ -497,8 +492,8 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
                                                     + ((Node) taskInputMapObjList.item(0))
                                                     .getNodeValue());
 
-                                    taskInputMap.setFromCapabilityId(new Integer(new Integer(((Node) taskInputMapObjList.item(0))
-                                            .getNodeValue()).intValue() + taskIdInt));
+                                    taskInputMap.setFromCapabilityId(new Integer(Integer.parseInt(((Node) taskInputMapObjList.item(0))
+                                            .getNodeValue()) + taskIdInt));
 
                                     // Add SrdId + DstId
                                     taskInputMap.setToCapabilityId(new Integer(taskIdInt + taskId.intValue()));
@@ -522,10 +517,7 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
             if (update == null) {
                 Vector<TaskInputMap> v = new Vector<TaskInputMap>(0);
 
-                for (int j = 0; j < totalTaskInputMapArrayList.size(); ++j) {
-                    TaskInputMap tim = totalTaskInputMapArrayList.get(j);
-                    v.add(tim);
-                }
+                v.addAll(totalTaskInputMapArrayList);
 
                 update = new TaskStatus(taskId,
                         TaskStatus.TaskStatusValue.READY, v);
@@ -962,8 +954,7 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
      * @return
      */
     private int searchIndex(int groupedTaskId, int dependsOnId) {
-        int index = -1;
-        return index;
+        return -1;
     }
 
 

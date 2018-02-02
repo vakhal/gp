@@ -106,16 +106,14 @@ public class ScheduleDBAccessImpl implements ScheduleDBAccess {
                     String scriptName = resultSet.getString("TASK_SCRPT_NAME");
 
                     // generate a reservation for the task to run
-                    TaskReservation rsvp =
-                            new TaskReservation(
-                                    taskName,
-                                    Integer.parseInt(duration),
-                                    TaskRequester.TASK_CLIENT,
-                                    null,
-                                    TaskType.SCRIPT_TASK,
-                                    scriptName);
 
-                    return rsvp;
+                    return new TaskReservation(
+                            taskName,
+                            Integer.parseInt(duration),
+                            TaskRequester.TASK_CLIENT,
+                            null,
+                            TaskType.SCRIPT_TASK,
+                            scriptName);
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
