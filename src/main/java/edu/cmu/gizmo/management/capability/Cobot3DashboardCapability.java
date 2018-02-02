@@ -119,6 +119,8 @@ public class Cobot3DashboardCapability extends Capability {
             try {
                 Thread.sleep(1000);
             } catch (final InterruptedException e) {
+                e.printStackTrace();
+                Thread.currentThread().interrupt();
             }
         }
 

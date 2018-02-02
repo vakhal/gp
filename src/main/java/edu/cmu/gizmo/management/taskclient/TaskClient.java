@@ -439,6 +439,8 @@ public class TaskClient extends Observable
             try {
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
+                e.printStackTrace();
+                Thread.currentThread().interrupt();
             }
 
             continueTask();

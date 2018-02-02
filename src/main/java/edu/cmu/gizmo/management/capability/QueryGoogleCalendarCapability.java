@@ -97,6 +97,8 @@ public class QueryGoogleCalendarCapability extends Capability {
                 try {
                     Thread.sleep(100);
                 } catch (final InterruptedException e) {
+                    e.printStackTrace();
+                    Thread.currentThread().interrupt();
                 }
             } else {
                 newInputFromUser = false;
