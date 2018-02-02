@@ -23,7 +23,7 @@ public class CapabilityHandler {
 	 * <li>COMPLETE: The capability is completed
 	 * <li>ERROR: The capability experienced an error.
 	 */
-	public static enum ClientCapabilityStatus {
+	public enum ClientCapabilityStatus {
 
 		/** initial state */
 		INIT, 

@@ -18,7 +18,7 @@ public class Cobot3CommandStatus {
 	/**
 	 * The Enum CommandStatus.
 	 */
-	public static enum CommandStatus {
+	public enum CommandStatus {
 		
 		/** The command is running. */
 		RUNNING,

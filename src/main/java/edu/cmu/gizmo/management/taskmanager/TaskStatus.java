@@ -26,7 +26,7 @@ public class TaskStatus {
 	 *  <li> CANCELED: the task was terminated before it completed
 	 *  </ul>   
 	 */
-	public static enum TaskStatusValue { 
+	public enum TaskStatusValue {
 		
 		/** The init. */
 		INIT, 

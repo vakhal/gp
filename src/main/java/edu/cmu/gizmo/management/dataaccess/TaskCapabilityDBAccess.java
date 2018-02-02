@@ -142,7 +142,6 @@ public interface TaskCapabilityDBAccess {
 	/**
 	 * Find information about a task or grouped task.
 	 *
-	 * @param taskDef bean
 	 * @return returns true if the task is found, false if not.
 	 */
 	public boolean findTaskByTaskName(String taskName);

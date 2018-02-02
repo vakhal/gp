@@ -338,7 +338,7 @@ implements Runnable, RobotTaskProxy, GizmoTaskClient, MessageListener {
 		System.out.println("[Cobot3TaskClient] executing");
 
 		running = true;		
-		while (running == true) {
+		while (running) {
 			try {
 				if ( taskInput != null) {
 					

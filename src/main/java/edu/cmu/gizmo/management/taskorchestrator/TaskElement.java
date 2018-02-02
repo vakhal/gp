@@ -10,7 +10,7 @@ package edu.cmu.gizmo.management.taskorchestrator;
  */
 public interface TaskElement {
 	
-	public static enum TaskElementType {
+	public enum TaskElementType {
 		SCRIPT,
 		PRIMITIVE
 	};

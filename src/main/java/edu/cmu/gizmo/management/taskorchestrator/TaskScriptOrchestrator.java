@@ -65,7 +65,7 @@ public class TaskScriptOrchestrator {
 	/**
 	 * Both Task and GroupedTask can have TaskType 
 	 */
-	public static enum TaskType {
+	public enum TaskType {
 		PARALLEL,
 		SEQUENTIAL
 	};
@@ -73,7 +73,7 @@ public class TaskScriptOrchestrator {
 	/**
 	 * Both Task and GroupedTask can use TaskSeq to change the order of the sequence 
 	 */
-	public static enum TaskSeq {
+	public enum TaskSeq {
 		UP,
 		DOWN
 	};
@@ -428,9 +428,8 @@ public class TaskScriptOrchestrator {
 	 */
 	public PlannedTasks loadExistingTaskPlannedTaskObject(String fileName) {
 		taskScriptParser.setTaskPlan(fileName);
-		taskScriptParser.parse();	
-		PlannedTasks plannedTasks = taskScriptParser.getPlannedTasks();
-		return plannedTasks;
+		taskScriptParser.parse();
+        return taskScriptParser.getPlannedTasks();
 	}
 
 	/**
@@ -751,9 +750,8 @@ public class TaskScriptOrchestrator {
 		String currGroupedTaskIdString = currGroupedTaskIdNode.getTextContent();
 		Node currTaskNode = currGroupedTaskNode.getChildNodes().item(taskNum.intValue()+1);
 		Node currTaskNameNode = currTaskNode.getChildNodes().item(1);
-		String currTaskNameNodeString = currTaskNameNode.getTextContent();
-		
-		return currTaskNameNodeString;
+
+        return currTaskNameNode.getTextContent();
 	}
 	
 	/**

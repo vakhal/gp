@@ -21,7 +21,7 @@ public class TaskHandler {
 	/**
 	 * The status values that a task may take.
 	 */
-	public static enum TaskHandlerStatus {
+	public enum TaskHandlerStatus {
 
 		/** The initial state of the task. */
 		READY, 

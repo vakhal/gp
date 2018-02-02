@@ -46,7 +46,7 @@ public class TaskExecutor implements Runnable, Comparable<TaskExecutor>  {
 	 * each task may use
 	 */
 	
-	public static enum TaskParameter {
+	public enum TaskParameter {
 		ROBOT,
 		ID,
 		TASK,
@@ -57,7 +57,7 @@ public class TaskExecutor implements Runnable, Comparable<TaskExecutor>  {
 	/**
 	 * The type of task to execute.
 	 */
-	public static enum TaskType {
+	public enum TaskType {
 
 		/** The script task. */
 		SCRIPT_TASK, 

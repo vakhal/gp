@@ -49,7 +49,7 @@ public class SkypeCommunicationCapability extends Capability implements
 		System.out.println("[SkypeCommunicationCapability] started");
 
 		// don't go into skype mode until the time allocated is set
-		while ((time == null) && (running == true)) {
+		while ((time == null) && (running)) {
 			try {
 				Thread.sleep(100);
 			} catch (final InterruptedException e) {
@@ -59,7 +59,7 @@ public class SkypeCommunicationCapability extends Capability implements
 		}
 
 		// if the capability is executing
-		if (running == false) {
+		if (!running) {
 			return;
 		}
 
@@ -67,7 +67,7 @@ public class SkypeCommunicationCapability extends Capability implements
 
 		try {
 			Integer counter = 0;
-			while ((counter < time) && (running == true)) {
+			while ((counter < time) && (running)) {
 				Thread.sleep(1000);
 				counter++;
 			}

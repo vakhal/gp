@@ -24,7 +24,7 @@ public class TaskPlan {
 	 * @author jsg
 	 *
 	 */
-	public static enum TerminationStrategy {
+	public enum TerminationStrategy {
 		TERMINATE, PAUSE
 	} 
 	

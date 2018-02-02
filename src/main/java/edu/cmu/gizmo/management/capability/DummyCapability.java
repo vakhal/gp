@@ -86,8 +86,7 @@ public class DummyCapability extends Capability implements PausableCapability {
 	 */
 	@Override
 	public Object pause() {
-		final ConcurrentHashMap<Object, Object> hp = new ConcurrentHashMap<Object, Object>();
-		return hp;
+		return new ConcurrentHashMap<Object, Object>();
 	}
 
 	/*

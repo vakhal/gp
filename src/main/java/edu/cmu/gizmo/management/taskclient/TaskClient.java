@@ -55,7 +55,7 @@ implements MessageListener, GizmoTaskClient {
 	/**
 	 * The Enum TaskClientCommands.
 	 */
-	public static enum TaskClientCommands {
+	public enum TaskClientCommands {
 
 		/** The load UI message that tells interface components to load 
 		 *  needed UI elements. */
@@ -205,7 +205,6 @@ implements MessageListener, GizmoTaskClient {
 
 			// invalid message
 			if (message == null) {
-				return;
 			}
 
 			/*
@@ -868,7 +867,7 @@ implements MessageListener, GizmoTaskClient {
 	 */
 	public void loadDashboard() {
 
-		if (dashboardLoaded == false) {
+		if (!dashboardLoaded) {
 
 			System.out.println("[TaskClient] Starting CoBot dashboard");
 			loadNewTask( 

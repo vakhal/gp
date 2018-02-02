@@ -29,8 +29,7 @@ public class CoBot3DashboardObserver extends AbstractCapabilityObserver {
 	@Override
 	public void setOutput(Object output)
 	{
-		ConcurrentHashMap<Object, Object> outputMap =
-			(ConcurrentHashMap<Object, Object>) output;
+		ConcurrentHashMap<Object, Object> outputMap = (ConcurrentHashMap<Object, Object>) output;
 		videoOutput = (byte[]) outputMap.get("image");
 	}
 

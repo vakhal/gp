@@ -17,7 +17,7 @@ import edu.cmu.gizmo.management.taskclient.Cobot3TaskClient;
  */
 public class RobotFactory {
 	
-	public static enum RobotModel {
+	public enum RobotModel {
 		COBOT3 /* Good ole' Cobot 3 */
 	};
 	

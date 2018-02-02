@@ -310,14 +310,14 @@ public class GoToRoomDriveCapability extends Capability implements
 		final ConcurrentHashMap<Object, Object> state = (ConcurrentHashMap<Object, Object>) rawState;
 
 		if (getStatus() == CapabilityStatus.PAUSED) {
-			if (state == null) {
-				return;
-			} else if (state.containsKey(INPUT_ROOM)) {
-				room = (String) state.get(INPUT_ROOM);
+			if (state != null) {
+				if (state.containsKey(INPUT_ROOM)) {
+                    room = (String) state.get(INPUT_ROOM);
 
-				// force re-issue of drive command
-				driveCommand = null;
-				setStatus(CapabilityStatus.RUNNING, "Resumed task");
+                    // force re-issue of drive command
+                    driveCommand = null;
+                    setStatus(CapabilityStatus.RUNNING, "Resumed task");
+                }
 			}
 		}
 	}

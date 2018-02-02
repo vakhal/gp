@@ -47,7 +47,7 @@ public class TaskManager implements Observer, MessageListener {
 	/**
 	 * The list of entities asking for tasks.
 	 */
-	public static enum TaskRequester {
+	public enum TaskRequester {
 
 		/** The task client. */
 		TASK_CLIENT,
@@ -248,7 +248,7 @@ public class TaskManager implements Observer, MessageListener {
 		try {	
 			final TaskStatus status = (TaskStatus) update;
 			
-			if (bus.isConnected() == false) {
+			if (!bus.isConnected()) {
 				return;
 			}
 			

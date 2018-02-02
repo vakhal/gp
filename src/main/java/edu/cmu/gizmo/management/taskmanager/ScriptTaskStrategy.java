@@ -978,8 +978,7 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
 	 * @return
 	 */
 	private int searchIndex(int groupedTaskId, int dependsOnId) {
-		int index = -1;
-		return index;
+        return -1;
 	}
 
 	

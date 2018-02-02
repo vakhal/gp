@@ -58,7 +58,7 @@ public abstract class Capability implements Runnable, MessageListener,
 	 * <li>ERROR: The capability has experienced an error
 	 * </ul>
 	 */
-	public static enum CapabilityStatus {
+	public enum CapabilityStatus {
 
 		/** The initial state of a capability. */
 		INIT,
@@ -448,7 +448,7 @@ public abstract class Capability implements Runnable, MessageListener,
 	 * thread, which will cause the execute method to run
 	 */
 	public synchronized void launch() {
-		if (launched == false) {
+		if (!launched) {
 			new Thread(this).start();
 		}
 	}
