@@ -45,9 +45,7 @@ public class Cobot3DashboardCapability extends Capability {
 
 	/**
 	 * Instantiates a new cobot3 dashboard capability.
-	 * 
-	 * @param robot
-	 *            the robot
+	 *
 	 */
 	public Cobot3DashboardCapability() {
 		cobot = null;
@@ -86,7 +84,7 @@ public class Cobot3DashboardCapability extends Capability {
 		//
 		System.out.println("[Cobot3DashboardCapability] executing");
 		running = true;
-		while (running == true) {
+		while (running) {
 			while ((getStatus() == CapabilityStatus.RUNNING) && running) {
 				try {
 
@@ -97,9 +95,12 @@ public class Cobot3DashboardCapability extends Capability {
 
 					// pause between image requests
 					Thread.sleep(250);
-				} catch (final InterruptedException e) {
+				} catch (final InterruptedException e)
+				{
 					e.printStackTrace();
-				} catch (final Exception e) {
+					Thread.currentThread().interrupt();
+				} catch (final Exception e)
+				{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -107,6 +108,8 @@ public class Cobot3DashboardCapability extends Capability {
 			try {
 				Thread.sleep(1000);
 			} catch (final InterruptedException e) {
+				e.printStackTrace();
+				Thread.currentThread().interrupt();
 			}
 		}
 

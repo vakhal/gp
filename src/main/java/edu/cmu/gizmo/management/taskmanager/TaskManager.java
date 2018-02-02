@@ -166,7 +166,9 @@ public class TaskManager implements Observer, MessageListener {
 		while (robot == null) {
 			try {
 				Thread.sleep(1000);
-			} catch (final InterruptedException ie) {
+			} catch (final InterruptedException e) {
+				e.printStackTrace();
+				Thread.currentThread().interrupt();
 			}
 		}
 

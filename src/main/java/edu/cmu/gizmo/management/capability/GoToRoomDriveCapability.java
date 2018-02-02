@@ -218,6 +218,7 @@ public class GoToRoomDriveCapability extends Capability implements
 				Thread.sleep(1000);
 			} catch (final InterruptedException e) {
 				e.printStackTrace();
+				Thread.currentThread().interrupt();
 			}
 		}
 	}

@@ -53,6 +53,8 @@ public class SkypeCommunicationCapability extends Capability implements
 			try {
 				Thread.sleep(100);
 			} catch (final InterruptedException e) {
+				e.printStackTrace();
+				Thread.currentThread().interrupt();
 			}
 		}
 
@@ -71,6 +73,7 @@ public class SkypeCommunicationCapability extends Capability implements
 			}
 		} catch (final InterruptedException e) {
 			e.printStackTrace();
+			Thread.currentThread().interrupt();
 		}
 
 		System.out.println("[SkypeCommunicationCapability] ended");

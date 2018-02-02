@@ -87,11 +87,13 @@ public class QueryGoogleCalendarCapability extends Capability {
 
 		while (true) {
 
-			if (newInputFromUser == false) {
+			if (!newInputFromUser) {
 				try {
 					Thread.sleep(100);
-				} catch (final InterruptedException e) {
 				}
+				catch (final InterruptedException e) {
+					e.printStackTrace();
+					Thread.currentThread().interrupt(); }
 			} else {
 				newInputFromUser = false;
 				final CalendarService myService = new CalendarService("example");
@@ -116,10 +118,8 @@ public class QueryGoogleCalendarCapability extends Capability {
 								"https://www.google.com/calendar/feeds/mse.team.gizmo%40gmail.com/private-4bdbc889dec68a0ea5e357f04328e987/full");
 
 						final CalendarQuery myQuery = new CalendarQuery(feedUrl);
-						myQuery.setMinimumStartTime(DateTime
-								.parseDateTime(startTime));
-						myQuery.setMaximumStartTime(DateTime
-								.parseDateTime(endTime));
+						myQuery.setMinimumStartTime(DateTime.parseDateTime(startTime));
+						myQuery.setMaximumStartTime(DateTime.parseDateTime(endTime));
 
 						// Send the request and receive the response:
 						final CalendarEventFeed resultFeed = myService.query(
@@ -140,8 +140,7 @@ public class QueryGoogleCalendarCapability extends Capability {
 
 							// Get all the calendar events for the time period
 							for (int i = 0; i < resultFeed.getEntries().size(); i++) {
-								final CalendarEventEntry entry = resultFeed
-										.getEntries().get(i);
+								final CalendarEventEntry entry = resultFeed.getEntries().get(i);
 								participants = entry.getParticipants();
 
 								// Check if the person is one of the
@@ -153,8 +152,7 @@ public class QueryGoogleCalendarCapability extends Capability {
 										// If the person is a participant in the
 										// event, set availability to false
 										availStatus = false;
-										final List<Where> loc = entry
-												.getLocations();
+										final List<Where> loc = entry.getLocations();
 
 										// If a room number is available for the
 										// event, set roomNumber to that room

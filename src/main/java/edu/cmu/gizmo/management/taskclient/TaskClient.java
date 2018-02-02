@@ -884,7 +884,9 @@ implements MessageListener, GizmoTaskClient {
 
 			// the dashboard may have to wait until the robot's camera is ready
 			try { Thread.sleep(5000); } 
-			catch (InterruptedException e) {  }
+			catch (InterruptedException e) {
+				e.printStackTrace();
+				Thread.currentThread().interrupt(); }
 
 			continueTask();
 
