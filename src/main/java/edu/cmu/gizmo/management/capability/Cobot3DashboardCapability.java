@@ -91,8 +91,8 @@ public class Cobot3DashboardCapability extends Capability {
         // The dashboard needs to wait while the cobot fires up
         // try {
         // Thread.sleep(5000);
-        // } catch(InterruptedException e) {
-        // e.printStackTrace();
+        // } catch(InterruptedException e) {e.printStackTrace();
+        // Thread.currentThread().interrupt();
         // }
         //
         System.out.println("[Cobot3DashboardCapability] executing");

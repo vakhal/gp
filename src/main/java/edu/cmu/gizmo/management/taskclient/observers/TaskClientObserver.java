@@ -433,12 +433,7 @@ public class TaskClientObserver
     }
 
     private void endAllCapabilities(int taskId) {
-        for (int count = 0;
-             count < capabilityObservers.size();
-             count++) {
-            ICapabilityObserver anObserver = capabilityObservers
-                    .get(count);
-
+        for (ICapabilityObserver anObserver : capabilityObservers) {
             if (anObserver.getTaskId() == taskId) {
                 anObserver.setStatus(CapabilityUIStatus.ENDED);
             }

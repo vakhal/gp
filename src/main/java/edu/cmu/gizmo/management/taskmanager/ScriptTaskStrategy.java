@@ -215,12 +215,12 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
                                         .getChildNodes();
                                 System.out
                                         .println("[ScriptTaskStrategy] load(): GroupedTaskID : "
-                                                + ((Node) groupedTaskIdNodeList
-                                                .item(groupedTaskIdListCounter))
+                                                + groupedTaskIdNodeList
+                                                .item(groupedTaskIdListCounter)
                                                 .getNodeValue());
 
-                                if (((Node) groupedTaskIdNodeList
-                                        .item(groupedTaskIdListCounter))
+                                if (groupedTaskIdNodeList
+                                        .item(groupedTaskIdListCounter)
                                         .getNodeValue() == null) {
                                     update = new TaskStatus(taskId,
                                             TaskStatus.TaskStatusValue.ERROR, "ERROR");
@@ -228,8 +228,8 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
                                     notifyObservers(update);
                                 }
 
-                                int groupedTaskIdInt = Integer.parseInt(((Node) groupedTaskIdNodeList
-                                        .item(groupedTaskIdListCounter))
+                                int groupedTaskIdInt = Integer.parseInt(groupedTaskIdNodeList
+                                        .item(groupedTaskIdListCounter)
                                         .getNodeValue());
                                 groupedTaskObj
                                         .setGroupedTaskId(groupedTaskIdInt);
@@ -305,10 +305,10 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
                                     taskIdList = taskIdElement.getChildNodes();
                                     System.out
                                             .println("[ScriptTaskStrategy] load(): TaskID : "
-                                                    + ((Node) taskIdList.item(0))
+                                                    + taskIdList.item(0)
                                                     .getNodeValue());
 
-                                    taskIdInt = Integer.parseInt(((Node) taskIdList.item(0))
+                                    taskIdInt = Integer.parseInt(taskIdList.item(0)
                                             .getNodeValue());
                                     taskObj.setTaskId(taskIdInt);
                                 }
@@ -330,10 +330,10 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
                                             .getChildNodes();
                                     System.out
                                             .println("[ScriptTaskStrategy] load(): Task Name : "
-                                                    + ((Node) taskNameList.item(0))
+                                                    + taskNameList.item(0)
                                                     .getNodeValue());
-                                    taskObj.setTaskName(((Node) taskNameList
-                                            .item(0)).getNodeValue());
+                                    taskObj.setTaskName(taskNameList
+                                            .item(0).getNodeValue());
                                 }
 
                                 // --------------
@@ -358,12 +358,12 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
                                             .getChildNodes();
                                     System.out
                                             .println("[ScriptTaskStrategy] load(): OutputName: "
-                                                    + ((Node) outputNameList
-                                                    .item(0))
+                                                    + outputNameList
+                                                    .item(0)
                                                     .getNodeValue());
 
-                                    output.setName(((Node) outputNameList
-                                            .item(0))
+                                    output.setName(outputNameList
+                                            .item(0)
                                             .getNodeValue());
 
                                     arrayOutput.add(output);
@@ -392,12 +392,12 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
                                             .getChildNodes();
                                     System.out
                                             .println("[ScriptTaskStrategy] load(): ParameterName: "
-                                                    + ((Node) paramNameList
-                                                    .item(0))
+                                                    + paramNameList
+                                                    .item(0)
                                                     .getNodeValue());
 
-                                    parameter.setName(((Node) paramNameList
-                                            .item(0))
+                                    parameter.setName(paramNameList
+                                            .item(0)
                                             .getNodeValue());
 
                                     arrayParameter.add(parameter);
@@ -419,21 +419,21 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
                                             .getChildNodes();
                                     System.out
                                             .println("[ScriptTaskStrategy] load(): Flag : "
-                                                    + ((Node) flagList.item(0))
+                                                    + flagList.item(0)
                                                     .getNodeValue()
                                                     + "\tStatus: "
                                                     + flagElement
                                                     .getAttribute("status"));
                                     Flag flag = new Flag();
 
-                                    if (((Node) flagList.item(0))
+                                    if (flagList.item(0)
                                             .getNodeValue() == null) {
                                         update = new TaskStatus(taskId,
                                                 TaskStatus.TaskStatusValue.ERROR, "ERROR");
                                         setChanged();
                                         notifyObservers(update);
                                     } else {
-                                        flag.setMsg(((Node) flagList.item(0))
+                                        flag.setMsg(flagList.item(0)
                                                 .getNodeValue());
                                         flag.setStatus(Integer.parseInt(flagElement
                                                 .getAttribute("status")));
@@ -461,7 +461,7 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
 
                                     Element taskInputMapObjElement = (Element) taskInputMapList.item(0);
                                     NodeList taskInputMapObjList = taskInputMapObjElement.getChildNodes();
-                                    String outputFrom = ((Node) taskInputMapObjList.item(0))
+                                    String outputFrom = taskInputMapObjList.item(0)
                                             .getNodeValue();
                                     System.out
                                             .println("[ScriptTaskStrategy] load(): TaskInputMap-SrcOutputName : "
@@ -472,7 +472,7 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
 
                                     taskInputMapObjElement = (Element) taskInputMapList.item(0);
                                     taskInputMapObjList = taskInputMapObjElement.getChildNodes();
-                                    String inputTo = ((Node) taskInputMapObjList.item(0))
+                                    String inputTo = taskInputMapObjList.item(0)
                                             .getNodeValue();
                                     System.out
                                             .println("[ScriptTaskStrategy] load(): TaskInputMap-DstParameterName : "
@@ -489,14 +489,14 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
 
                                     System.out
                                             .println("[ScriptTaskStrategy] load(): TaskInputMap-InputCapabilityId : "
-                                                    + ((Node) taskInputMapObjList.item(0))
+                                                    + taskInputMapObjList.item(0)
                                                     .getNodeValue());
 
-                                    taskInputMap.setFromCapabilityId(new Integer(Integer.parseInt(((Node) taskInputMapObjList.item(0))
-                                            .getNodeValue()) + taskIdInt));
+                                    taskInputMap.setFromCapabilityId(Integer.parseInt(((Node) taskInputMapObjList.item(0))
+                                            .getNodeValue()) + taskIdInt);
 
                                     // Add SrdId + DstId
-                                    taskInputMap.setToCapabilityId(new Integer(taskIdInt + taskId.intValue()));
+                                    taskInputMap.setToCapabilityId(taskIdInt + taskId.intValue());
 
                                     taskInputMapArrayList.add(taskInputMap);
                                     taskObj.setTaskInputMapArrayList(taskInputMapArrayList);
@@ -555,13 +555,9 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
     public void resolve() {
         if (tasks != null) {
             ArrayList<GroupedTask> tmpArrGroupedTask = tasks.getGroupedTask();
-            for (int i = 0; i < tmpArrGroupedTask.size(); ++i) {
-                GroupedTask tmpGroupedTask = tmpArrGroupedTask.get(i);
+            for (GroupedTask tmpGroupedTask : tmpArrGroupedTask) {
                 ArrayList<Task> tmpArrTask = tmpGroupedTask.getTasks();
-                for (int j = 0; j < tmpArrTask.size(); ++j) {
-                    Task tmpTask = tmpArrTask.get(j);
-
-
+                for (Task tmpTask : tmpArrTask) {
                     try {
 
                         System.out.println("[ScriptTaskStrategy] resolve(): " +
@@ -589,11 +585,9 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
     public void configure() {
         if (taskVerified) {
             ArrayList<GroupedTask> tmpArrGroupedTask = tasks.getGroupedTask();
-            for (int i = 0; i < tmpArrGroupedTask.size(); ++i) {
-                GroupedTask tmpGroupedTask = tmpArrGroupedTask.get(i);
+            for (GroupedTask tmpGroupedTask : tmpArrGroupedTask) {
                 ArrayList<Task> tmpArrTask = tmpGroupedTask.getTasks();
-                for (int j = 0; j < tmpArrTask.size(); ++j) {
-                    Task tmpTask = tmpArrTask.get(j);
+                for (Task tmpTask : tmpArrTask) {
                     // Read in Capability Config
                     System.out.println("tmpTask.getCapabilityName(): " + tmpTask.getCapabilityName());
                     ConcurrentHashMap<Object, Object> config = mreader.readCapabilityManifest(tmpTask.getCapabilityName());
@@ -611,8 +605,7 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
     public void createContructor() {
         if (taskVerified) {
             ArrayList<GroupedTask> tmpArrGroupedTask = tasks.getGroupedTask();
-            for (int i = 0; i < tmpArrGroupedTask.size(); ++i) {
-                GroupedTask tmpGroupedTask = tmpArrGroupedTask.get(i);
+            for (GroupedTask tmpGroupedTask : tmpArrGroupedTask) {
                 ArrayList<Task> tmpArrTask = tmpGroupedTask.getTasks();
                 for (int j = 0; j < tmpArrTask.size(); ++j) {
                     Task tmpTask = tmpArrTask.get(j);
@@ -898,44 +891,43 @@ public class ScriptTaskStrategy extends TaskExecutionStrategy {
      */
     public void printTask() {
         ArrayList<GroupedTask> arrGroupedTask = tasks.getGroupedTask();
-        for (int index = 0; index < arrGroupedTask.size(); ++index) {
-            GroupedTask groupedTask = arrGroupedTask.get(index);
+        for (GroupedTask groupedTask : arrGroupedTask) {
             ArrayList<Task> arrTask = groupedTask.getTasks();
-            for (int index2 = 0; index2 < arrTask.size(); ++index2) {
-                System.out.println("[ScriptTaskStrategy] printTask(): Task No: " + arrTask.get(index2).getTaskId());
-                System.out.println("[ScriptTaskStrategy] printTask(): Task Name: " + arrTask.get(index2).getTaskName());
-                System.out.println("[ScriptTaskStrategy] printTask(): Task Status Value: " + (arrTask.get(index2).getTaskStatus()).getRetVal());
+            for (Task anArrTask : arrTask) {
+                System.out.println("[ScriptTaskStrategy] printTask(): Task No: " + anArrTask.getTaskId());
+                System.out.println("[ScriptTaskStrategy] printTask(): Task Name: " + anArrTask.getTaskName());
+                System.out.println("[ScriptTaskStrategy] printTask(): Task Status Value: " + (anArrTask.getTaskStatus()).getRetVal());
 
 
                 // HashMap Config
-                if (arrTask.get(index2).getConfig() == null)
+                if (anArrTask.getConfig() == null)
                     System.out.println("[ScriptTaskStrategy] printTask(): HashMap config is NULL !!!");
                 else
                     System.out.println("[ScriptTaskStrategy] printTask(): HashMap config is NOT NULL ");
 
 
                 // Check capability
-                if (arrTask.get(index2).getCapbility() == null)
+                if (anArrTask.getCapbility() == null)
                     System.out.println("[ScriptTaskStrategy] printTask(): Capability is NULL !!!");
                 else
-                    System.out.println("[ScriptTaskStrategy] printTask(): Capability status is: " + arrTask.get(index2).getCapbility().getStatus());
+                    System.out.println("[ScriptTaskStrategy] printTask(): Capability status is: " + anArrTask.getCapbility().getStatus());
 
                 // Check constructor
-                if (arrTask.get(index2).getCapabilityConstructor() == null)
+                if (anArrTask.getCapabilityConstructor() == null)
                     System.out.println("[ScriptTaskStrategy] printTask(): Constructor is NULL !!!");
                 else
                     System.out.println("[ScriptTaskStrategy] printTask(): Constructor is NOT NULL !!!");
 
                 // Check constructor
-                if (arrTask.get(index2).getCapabilityName() == null)
+                if (anArrTask.getCapabilityName() == null)
                     System.out.println("[ScriptTaskStrategy] printTask(): CapabilityName");
                 else
-                    System.out.println("[ScriptTaskStrategy] printTask(): CapabilityName" + arrTask.get(index2).getCapabilityName());
+                    System.out.println("[ScriptTaskStrategy] printTask(): CapabilityName" + anArrTask.getCapabilityName());
 
 
-                if (arrTask.get(index2).getDependsOn() != null) {
-                    System.out.println("[ScriptTaskStrategy] printTask(): Task DependsOn Id: " + arrTask.get(index2).getDependsOn().getId());
-                    System.out.println("[ScriptTaskStrategy] printTask(): Task DependsOn Status" + arrTask.get(index2).getDependsOn().getStatus());
+                if (anArrTask.getDependsOn() != null) {
+                    System.out.println("[ScriptTaskStrategy] printTask(): Task DependsOn Id: " + anArrTask.getDependsOn().getId());
+                    System.out.println("[ScriptTaskStrategy] printTask(): Task DependsOn Status" + anArrTask.getDependsOn().getStatus());
                 } else {
                     System.out.println("[ScriptTaskStrategy] printTask(): Task DependsOn No Dependency");
                 }

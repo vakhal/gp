@@ -183,7 +183,7 @@ public class TaskManager implements Observer, MessageListener {
             final ConcurrentHashMap<TaskParameter, Object> config = new ConcurrentHashMap<TaskParameter, Object>();
 
             // increment the task ID pool to keep tasks unique
-            final Integer thisTaskId = new Integer(taskIdPool.intValue());
+            final Integer thisTaskId = taskIdPool.intValue();
 
             config.put(TaskParameter.ROBOT, robot);
             config.put(TaskParameter.TYPE, taskType);

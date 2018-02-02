@@ -233,7 +233,7 @@ public class GizmoTaskBus {
 		 * to determine which message this consumer will accept
 		 */
 
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         for (int i = 0; i < messageSelectors.length; i++) {
             buf.append("gizmo = '");
             buf.append(messageSelectors[i]);

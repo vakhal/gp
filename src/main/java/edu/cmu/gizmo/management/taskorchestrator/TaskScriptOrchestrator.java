@@ -248,7 +248,7 @@ public class TaskScriptOrchestrator {
         Element root = dom.getDocumentElement();
         Node tasksNode = root.getChildNodes().item(0);
 
-        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue()); // GroupedTask
+        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum); // GroupedTask
         NodeList groupedTaskNodeList = groupedTaskNode.getChildNodes();
 
         NodeList taskNodeList = groupedTaskNode.getChildNodes();
@@ -280,7 +280,7 @@ public class TaskScriptOrchestrator {
         Element root = dom.getDocumentElement();
         Node tasksNode = root.getChildNodes().item(0);
 
-        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue()); // GroupedTask
+        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum); // GroupedTask
         NodeList groupedTaskNodeList = groupedTaskNode.getChildNodes();
 
         NodeList taskNodeList = groupedTaskNode.getChildNodes();
@@ -316,7 +316,7 @@ public class TaskScriptOrchestrator {
         Element root = dom.getDocumentElement();
         Node tasksNode = root.getChildNodes().item(0);
 
-        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue()); // GroupedTask
+        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum); // GroupedTask
         NodeList groupedTaskNodeList = groupedTaskNode.getChildNodes();
 
         NodeList taskNodeList = groupedTaskNode.getChildNodes();
@@ -353,9 +353,8 @@ public class TaskScriptOrchestrator {
         if (children == null) {
             // Either dir does not exist or is not a directory
         } else {
-            for (int i = 0; i < children.length; i++) {
+            for (String filename : children) {
                 // Get filename of file or directory
-                String filename = children[i];
                 if (filename.endsWith("xml") && !filename.equals("pom.xml"))
                     System.out.println(filename.substring(0, filename.lastIndexOf(".xml")));
             }
@@ -411,7 +410,7 @@ public class TaskScriptOrchestrator {
         Element root = dom.getDocumentElement();
         Node tasksNode = root.getChildNodes().item(0);
 
-        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue()); // GroupedTask
+        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum); // GroupedTask
         NodeList groupedTaskNodeList = groupedTaskNode.getChildNodes();
 
         for (int i = 0; i < groupedTaskNodeList.getLength(); ++i) {
@@ -432,11 +431,11 @@ public class TaskScriptOrchestrator {
         Element root = dom.getDocumentElement();
         Node tasksNode = root.getChildNodes().item(0);
 
-        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue()); // GroupedTask
+        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum); // GroupedTask
         NodeList groupedTaskNodeList = groupedTaskNode.getChildNodes();
 
         NodeList taskNodeList = groupedTaskNode.getChildNodes();
-        Node taskNode = groupedTaskNode.getChildNodes().item(taskNum.intValue() + 1); // Task
+        Node taskNode = groupedTaskNode.getChildNodes().item(taskNum + 1); // Task
         Node taskIdNode = taskNode.getChildNodes().item(0);
         NodeList taskNodeDescriptionList = taskNode.getChildNodes();
 
@@ -462,7 +461,7 @@ public class TaskScriptOrchestrator {
         Node tasksNode = root.getChildNodes().item(0);
 
         NodeList groupedTaskNodeList = tasksNode.getChildNodes();
-        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue()); // GroupedTask
+        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum); // GroupedTask
 
         NodeList taskNodeList = groupedTaskNode.getChildNodes();
         boolean stop = false;
@@ -494,10 +493,10 @@ public class TaskScriptOrchestrator {
         Node tasksNode = root.getChildNodes().item(0);
 
         NodeList groupedTaskNodeList = tasksNode.getChildNodes();
-        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue()); // GroupedTask
+        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum); // GroupedTask
 
         NodeList taskNodeList = groupedTaskNode.getChildNodes();
-        Node taskNode = groupedTaskNode.getChildNodes().item(taskNum.intValue() + 1); // Task
+        Node taskNode = groupedTaskNode.getChildNodes().item(taskNum + 1); // Task
         Node taskIdNode = taskNode.getChildNodes().item(0);
 
         if (taskIdNode.getTextContent().equals(taskNum.toString())) {
@@ -516,7 +515,7 @@ public class TaskScriptOrchestrator {
         Element root = dom.getDocumentElement();
         Node tasksNode = root.getChildNodes().item(0);
 
-        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue());
+        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum);
         NodeList groupedTaskNodeList = tasksNode.getChildNodes();
 
         tasksNode.removeChild(groupedTaskNode);
@@ -535,13 +534,13 @@ public class TaskScriptOrchestrator {
         Node tasksNode = root.getChildNodes().item(0);
 
         if (taskSeq == TaskSeq.DOWN) {
-            Node currGroupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue());
+            Node currGroupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum);
             Node currGroupedTaskIdNode = currGroupedTaskNode.getChildNodes().item(0);
-            Node currTaskNode = currGroupedTaskNode.getChildNodes().item(taskNum.intValue() + 1); // GroupedTaskID was the first one
+            Node currTaskNode = currGroupedTaskNode.getChildNodes().item(taskNum + 1); // GroupedTaskID was the first one
             Node currTaskIdNode = currTaskNode.getChildNodes().item(0);
             Node currTaskIdNextNode = currTaskNode.getChildNodes().item(1);
 
-            Node nextTaskNode = currGroupedTaskNode.getChildNodes().item(taskNum.intValue() + 2);
+            Node nextTaskNode = currGroupedTaskNode.getChildNodes().item(taskNum + 2);
             Node nextTaskIdNode = nextTaskNode.getChildNodes().item(0);
             Node nextTaskIdNextIdNode = nextTaskNode.getChildNodes().item(1);
 
@@ -556,13 +555,13 @@ public class TaskScriptOrchestrator {
             currGroupedTaskNode.removeChild(nextTaskNode);
             currGroupedTaskNode.insertBefore(nextTaskNode, currTaskNode);
         } else {
-            Node currGroupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue());
+            Node currGroupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum);
             Node currGroupedTaskIdNode = currGroupedTaskNode.getChildNodes().item(0);
-            Node currTaskNode = currGroupedTaskNode.getChildNodes().item(taskNum.intValue() + 1); // GroupedTaskID was the first one
+            Node currTaskNode = currGroupedTaskNode.getChildNodes().item(taskNum + 1); // GroupedTaskID was the first one
             Node currTaskIdNode = currTaskNode.getChildNodes().item(0);
             Node currTaskIdNextNode = currTaskNode.getChildNodes().item(1);
 
-            Node prevTaskNode = currGroupedTaskNode.getChildNodes().item(taskNum.intValue());
+            Node prevTaskNode = currGroupedTaskNode.getChildNodes().item(taskNum);
             Node prevTaskIdNode = prevTaskNode.getChildNodes().item(0);
             Node prevTaskIdNextIdNode = prevTaskNode.getChildNodes().item(1);
 
@@ -592,11 +591,11 @@ public class TaskScriptOrchestrator {
         Node tasksNode = root.getChildNodes().item(0);
 
         if (groupedTaskSeq == TaskSeq.UP) {
-            Node currGroupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue());
+            Node currGroupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum);
             Node currGroupedTaskIdNode = currGroupedTaskNode.getChildNodes().item(0);
             Node currGroupedTaskNextNode = currGroupedTaskNode.getChildNodes().item(1);
 
-            Node prevGroupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue() - 1);
+            Node prevGroupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum - 1);
             Node prevGroupedTaskIdNode = prevGroupedTaskNode.getChildNodes().item(0);
             Node prevGroupedTaskNextNode = prevGroupedTaskNode.getChildNodes().item(1);
 
@@ -611,11 +610,11 @@ public class TaskScriptOrchestrator {
             tasksNode.removeChild(currGroupedTaskNode);
             tasksNode.insertBefore(currGroupedTaskNode, prevGroupedTaskNode);
         } else {
-            Node nextGroupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue() + 1);
+            Node nextGroupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum + 1);
             Node nextGroupedTaskIdNode = nextGroupedTaskNode.getChildNodes().item(0);
             Node nextGroupedTaskNextNode = nextGroupedTaskNode.getChildNodes().item(1);
 
-            Node currGroupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue());
+            Node currGroupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum);
             Node currGroupedTaskIdNode = currGroupedTaskNode.getChildNodes().item(0);
             Node currGroupedTaskNextNode = currGroupedTaskNode.getChildNodes().item(1);
 
@@ -672,8 +671,8 @@ public class TaskScriptOrchestrator {
         }
 
         Vector<String> primitiveList = new Vector<String>();
-        for (int i = 0; i < capabilityList.size(); ++i) {
-            primitiveList.add(dbo.retrievePrimitive(capabilityList.get(i)));
+        for (String aCapabilityList : capabilityList) {
+            primitiveList.add(dbo.retrievePrimitive(aCapabilityList));
         }
 
         return primitiveList;
@@ -692,10 +691,10 @@ public class TaskScriptOrchestrator {
         Element root = dom.getDocumentElement();
         Node tasksNode = root.getChildNodes().item(0);
 
-        Node currGroupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue());
+        Node currGroupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum);
         Node currGroupedTaskIdNode = currGroupedTaskNode.getChildNodes().item(0);
         String currGroupedTaskIdString = currGroupedTaskIdNode.getTextContent();
-        Node currTaskNode = currGroupedTaskNode.getChildNodes().item(taskNum.intValue() + 1);
+        Node currTaskNode = currGroupedTaskNode.getChildNodes().item(taskNum + 1);
         Node currTaskNameNode = currTaskNode.getChildNodes().item(1);
 
         return currTaskNameNode.getTextContent();
@@ -713,7 +712,7 @@ public class TaskScriptOrchestrator {
         Node tasksNode = root.getChildNodes().item(0);
 
         NodeList groupedTaskNodeList = tasksNode.getChildNodes();
-        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue()); // GroupedTask
+        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum); // GroupedTask
 
         Element groupedTaskDependsOn = dom.createElement("GroupedTaskDependsOn");
 
@@ -740,10 +739,10 @@ public class TaskScriptOrchestrator {
         Node tasksNode = root.getChildNodes().item(0);
 
         NodeList groupedTaskNodeList = tasksNode.getChildNodes();
-        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue()); // GroupedTask
+        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum); // GroupedTask
 
         NodeList taskNodeList = groupedTaskNode.getChildNodes();
-        Node taskNode = groupedTaskNode.getChildNodes().item(taskNum.intValue() + 1); // Task
+        Node taskNode = groupedTaskNode.getChildNodes().item(taskNum + 1); // Task
         Node taskIdNode = taskNode.getChildNodes().item(0);
 
         Element dependsOn = dom.createElement("DependsOn");
@@ -776,7 +775,7 @@ public class TaskScriptOrchestrator {
         Node tasksNode = root.getChildNodes().item(0);
 
         NodeList groupedTaskNodeList = tasksNode.getChildNodes();
-        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue()); // GroupedTask
+        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum); // GroupedTask
 
         NodeList taskNodeList = groupedTaskNode.getChildNodes();
 
@@ -789,8 +788,7 @@ public class TaskScriptOrchestrator {
                 taskNum = i;
         }
 
-        for (int i = 0; i < inputVector.size(); ++i) {
-            String parameterInfo = inputVector.get(i);
+        for (String parameterInfo : inputVector) {
             Element parameter = dom.createElement("Parameter");
             Element parameterName = dom.createElement("ParameterName");
             parameterName.appendChild(dom.createTextNode(parameterInfo));
@@ -813,11 +811,11 @@ public class TaskScriptOrchestrator {
         Element root = dom.getDocumentElement();
         Node tasksNode = root.getChildNodes().item(0);
 
-        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue()); // GroupedTask
+        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum); // GroupedTask
         NodeList groupedTaskNodeList = groupedTaskNode.getChildNodes();
 
         NodeList taskNodeList = groupedTaskNode.getChildNodes();
-        Node prevTaskNode = groupedTaskNode.getChildNodes().item(taskNum.intValue() + 1); // Task
+        Node prevTaskNode = groupedTaskNode.getChildNodes().item(taskNum + 1); // Task
         Node taskIdNode = prevTaskNode.getChildNodes().item(0);
         NodeList taskNodeDescriptionList = prevTaskNode.getChildNodes();
 
@@ -851,7 +849,7 @@ public class TaskScriptOrchestrator {
         Node tasksNode = root.getChildNodes().item(0);
 
         NodeList groupedTaskNodeList = tasksNode.getChildNodes();
-        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue()); // GroupedTask
+        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum); // GroupedTask
 
         NodeList taskNodeList = groupedTaskNode.getChildNodes();
 
@@ -876,8 +874,7 @@ public class TaskScriptOrchestrator {
         }
 
 
-        for (int i = 0; i < outputVector.size(); ++i) {
-            String parameterInfo = outputVector.get(i);
+        for (String parameterInfo : outputVector) {
             Element parameter = dom.createElement("TaskInputMap");
 
             Element inputCapabilityId = dom.createElement("InputCapabilityId");
@@ -917,7 +914,7 @@ public class TaskScriptOrchestrator {
         Node tasksNode = root.getChildNodes().item(0);
 
         NodeList groupedTaskNodeList = tasksNode.getChildNodes();
-        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum.intValue()); // GroupedTask
+        Node groupedTaskNode = tasksNode.getChildNodes().item(groupedTaskNum); // GroupedTask
 
         NodeList taskNodeList = groupedTaskNode.getChildNodes();
 
@@ -930,8 +927,7 @@ public class TaskScriptOrchestrator {
                 taskNum = i;
         }
 
-        for (int i = 0; i < outputVector.size(); ++i) {
-            String parameterInfo = outputVector.get(i);
+        for (String parameterInfo : outputVector) {
             Element parameter = dom.createElement("Output");
             Element parameterName = dom.createElement("OutputName");
             parameterName.appendChild(dom.createTextNode(parameterInfo));
@@ -948,7 +944,7 @@ public class TaskScriptOrchestrator {
         Element root = dom.getDocumentElement();
 
         Node groupedTaskNode = root.getChildNodes().item(0)
-                .getChildNodes().item(groupedTaskNum.intValue());
+                .getChildNodes().item(groupedTaskNum);
 
         int numOfTask = 0;
         for (int i = 0; i < groupedTaskNode.getChildNodes().getLength(); ++i) {
@@ -985,7 +981,7 @@ public class TaskScriptOrchestrator {
 
         Element dependsOn = dom.createElement("DependsOn");
         //if(dependentTaskNum.intValue() != -1) {
-        if (taskType == TaskType.SEQUENTIAL && dependentTaskNum.intValue() != -1) {
+        if (taskType == TaskType.SEQUENTIAL && dependentTaskNum != -1) {
             Attr attrId = dom.createAttribute("id");
             attrId.setValue(dependentTaskNum.toString());
             dependsOn.setAttributeNode(attrId);

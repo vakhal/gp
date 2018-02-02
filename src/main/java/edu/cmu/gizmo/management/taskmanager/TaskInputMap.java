@@ -95,17 +95,12 @@ public class TaskInputMap implements Serializable {
 
     public String toString() {
 
-        String r = "";
+        StringBuilder r = new StringBuilder();
         if (route != null) {
-            final Iterator<Entry<String, String>> entries =
-                    route.entrySet().iterator();
 
             // send each input parameter to the extending capability
-            while (entries.hasNext()) {
-                final Entry<String, String> entry =
-                        entries.next();
-
-                r += entry.getKey() + ":" + entry.getValue() + " ";
+            for (Entry<String, String> entry : route.entrySet()) {
+                r.append(entry.getKey()).append(":").append(entry.getValue()).append(" ");
             }
         }
 

@@ -145,14 +145,14 @@ public class CapabilityResourceTable {
      * 5. add "key,value", capability
      */
     public void createDataStructure() {
-        for (int i = 0; i < capabilityList.size(); ++i) {
-            String capabilityName = (String) capabilityList.get(i);
+        for (String aCapabilityList : capabilityList) {
+            String capabilityName = (String) aCapabilityList;
             ConcurrentHashMap<Object, Object> capabilityHashMap =
                     manifestReader.readCapabilityManifest(capabilityName);
 
             for (Map.Entry<Object, Object> entry : capabilityHashMap.entrySet()) {
                 String key = (String) entry.getKey();
-                String value = (String) capabilityHashMap.get((Object) key);
+                String value = (String) capabilityHashMap.get(key);
                 String keyValue = null;
                 if (!key.equals("ui.display") && !key.equals("ui.class") &&
                         !key.equals("capability.directory")) {
@@ -192,7 +192,7 @@ public class CapabilityResourceTable {
             }
             for (Map.Entry<Object, Object> entry : capabilityHashMap.entrySet()) {
                 String key = (String) entry.getKey();
-                String value = (String) capabilityHashMap.get((Object) key);
+                String value = (String) capabilityHashMap.get(key);
                 String keyValue = null;
                 if (!key.equals("ui.display") && !key.equals("ui.class") &&
                         !key.equals("capability.directory") && !key.equals("output.name") &&
@@ -240,10 +240,10 @@ public class CapabilityResourceTable {
 
         for (Map.Entry<String, Vector<String>> entry : inputLookup.entrySet()) {
 
-            String key = (String) entry.getKey();
+            String key = entry.getKey();
 
             if (key.toLowerCase().equals(capabilityName.toLowerCase())) {
-                return (Vector<String>) inputLookup.get((Object) key);
+                return inputLookup.get(key);
             }
         }
         return null;
@@ -257,9 +257,9 @@ public class CapabilityResourceTable {
      */
     public Vector<String> returnCapabilityOutput(String capabilityName) {
         for (Map.Entry<String, Vector<String>> entry : outputLookup.entrySet()) {
-            String key = (String) entry.getKey();
+            String key = entry.getKey();
             if (key.toLowerCase().equals(capabilityName.toLowerCase())) {
-                return (Vector<String>) outputLookup.get((Object) key);
+                return outputLookup.get(key);
             }
         }
         return null;
@@ -273,9 +273,9 @@ public class CapabilityResourceTable {
      */
     public int returnNumOfCapabilityForKeyValue(String keyValue) {
         for (Map.Entry<String, Vector<String>> entry : keyValueLookup.entrySet()) {
-            String key = (String) entry.getKey();
+            String key = entry.getKey();
             if (key.equals(keyValue)) {
-                Vector<String> value = (Vector<String>) keyValueLookup.get((Object) key);
+                Vector<String> value = keyValueLookup.get(key);
                 return value.size();
             }
         }
@@ -291,9 +291,9 @@ public class CapabilityResourceTable {
      */
     public Vector<String> returnListOfCapabilitiesUsingSameResource(String keyValue) {
         for (Map.Entry<String, Vector<String>> entry : keyValueLookup.entrySet()) {
-            String key = (String) entry.getKey();
+            String key = entry.getKey();
             if (key.toLowerCase().equals(keyValue.toLowerCase())) {
-                return (Vector<String>) keyValueLookup.get((Object) key);
+                return keyValueLookup.get(key);
             }
         }
         return null;
@@ -307,9 +307,9 @@ public class CapabilityResourceTable {
      */
     public Vector<String> returnListOfResourcesCapabilityIsUsing(String capabilityName) {
         for (Map.Entry<String, Vector<String>> entry : capabilityLookup.entrySet()) {
-            String key = (String) entry.getKey();
+            String key = entry.getKey();
             if (key.toLowerCase().equals(capabilityName.toLowerCase())) {
-                return (Vector<String>) capabilityLookup.get((Object) key);
+                return capabilityLookup.get(key);
             }
         }
         return null;
@@ -323,9 +323,9 @@ public class CapabilityResourceTable {
     public Vector<String> printCapabilityLookup() {
         System.out.println("Capability PrintOut");
         for (Map.Entry<String, Vector<String>> entry : capabilityLookup.entrySet()) {
-            String key = (String) entry.getKey();
+            String key = entry.getKey();
             System.out.println("key: " + key);
-            Vector<String> value = (Vector<String>) capabilityLookup.get((Object) key);
+            Vector<String> value = capabilityLookup.get(key);
             for (int i = 0; i < value.size(); ++i) {
                 System.out.println("value" + i + ": " + value.get(i));
             }
@@ -341,9 +341,9 @@ public class CapabilityResourceTable {
     public Vector<String> printKeyValueLookup() {
         System.out.println("KeyValue PrintOut");
         for (Map.Entry<String, Vector<String>> entry : keyValueLookup.entrySet()) {
-            String key = (String) entry.getKey();
+            String key = entry.getKey();
             System.out.println("key: " + key);
-            Vector<String> value = (Vector<String>) keyValueLookup.get((Object) key);
+            Vector<String> value = keyValueLookup.get(key);
             for (int i = 0; i < value.size(); ++i) {
                 System.out.println("value" + i + ": " + value.get(i));
             }
@@ -359,9 +359,9 @@ public class CapabilityResourceTable {
     public Vector<String> printInputLookup() {
         System.out.println("Input PrintOut");
         for (Map.Entry<String, Vector<String>> entry : inputLookup.entrySet()) {
-            String key = (String) entry.getKey();
+            String key = entry.getKey();
             System.out.println("key: " + key);
-            Vector<String> value = (Vector<String>) inputLookup.get((Object) key);
+            Vector<String> value = inputLookup.get(key);
             for (int i = 0; i < value.size(); ++i) {
                 System.out.println("value" + i + ": " + value.get(i));
             }
@@ -377,9 +377,9 @@ public class CapabilityResourceTable {
     public Vector<String> printOutputLookup() {
         System.out.println("Output PrintOut");
         for (Map.Entry<String, Vector<String>> entry : outputLookup.entrySet()) {
-            String key = (String) entry.getKey();
+            String key = entry.getKey();
             System.out.println("key: " + key);
-            Vector<String> value = (Vector<String>) outputLookup.get((Object) key);
+            Vector<String> value = outputLookup.get(key);
             for (int i = 0; i < value.size(); ++i) {
                 System.out.println("value" + i + ": " + value.get(i));
             }

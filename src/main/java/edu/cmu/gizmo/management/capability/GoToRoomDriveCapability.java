@@ -240,7 +240,7 @@ public class GoToRoomDriveCapability extends Capability implements
     @Override
     public Object getInputParameterValue(final Object param) {
 
-        if (((String) param).equals(INPUT_ROOM)) {
+        if (param.equals(INPUT_ROOM)) {
             return room;
         }
         return null;

@@ -201,8 +201,7 @@ public class OrchestrationAction extends GizmoAction {
 
         //convert the returned strings list to primitives list
         Primitive aPrimitive;
-        for (int count = 0; count < primitivesStringList.size(); count++) {
-            String primitiveStr = primitivesStringList.get(count);
+        for (String primitiveStr : primitivesStringList) {
             aPrimitive = new Primitive();
             aPrimitive.setId(primitiveStr);
             aPrimitive.setName(primitiveStr);

@@ -128,7 +128,7 @@ public class TaskExecutor implements Runnable, Comparable<TaskExecutor> {
         }
 
         if (executionStrategy == null) {
-            StringBuffer errMsg = new StringBuffer("[");
+            StringBuilder errMsg = new StringBuilder("[");
             if (robot == null)
                 errMsg.append(" invalid robot ");
             if (taskId == null)

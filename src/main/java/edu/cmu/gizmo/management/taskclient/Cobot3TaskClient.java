@@ -213,7 +213,7 @@ public class Cobot3TaskClient
                 final Iterator<Map.Entry<Object, Object>> entries =
                         output.entrySet().iterator();
 
-                final StringBuffer buf = new StringBuffer();
+                final StringBuilder buf = new StringBuilder();
 
                 while (entries.hasNext()) {
                     final Map.Entry<Object, Object> entry = entries.next();

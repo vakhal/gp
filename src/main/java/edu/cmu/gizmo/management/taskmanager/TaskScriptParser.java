@@ -161,15 +161,13 @@ public class TaskScriptParser {
                                 NodeList groupedTaskIdNodeList = groupedTaskIdElement
                                         .getChildNodes();
 
-                                if (((Node) groupedTaskIdNodeList
-                                        .item(groupedTaskIdListCounter))
-                                        .getNodeValue() == null) {
-                                    update = new TaskStatus(taskId,
-                                            TaskStatus.TaskStatusValue.ERROR, "ERROR");
-                                }
+                                if (groupedTaskIdNodeList
+                                        .item(groupedTaskIdListCounter)
+                                        .getNodeValue() == null) update = new TaskStatus(taskId,
+                                        TaskStatus.TaskStatusValue.ERROR, "ERROR");
 
-                                int groupedTaskIdInt = Integer.parseInt(((Node) groupedTaskIdNodeList
-                                        .item(groupedTaskIdListCounter))
+                                int groupedTaskIdInt = Integer.parseInt(groupedTaskIdNodeList
+                                        .item(groupedTaskIdListCounter)
                                         .getNodeValue());
                                 groupedTaskObj
                                         .setGroupedTaskId(groupedTaskIdInt);
@@ -219,22 +217,18 @@ public class TaskScriptParser {
                                 // --------------
                                 // TaskID
                                 // --------------
-                                NodeList taskIdNodeList = groupedTaskElement
-                                        .getElementsByTagName("TaskID");
-                                Element taskIdElement = (Element) taskIdNodeList
-                                        .item(0);
+                                NodeList taskIdNodeList = groupedTaskElement.getElementsByTagName("TaskID");
 
-                                NodeList taskIdList = null;
+                                Element taskIdElement = (Element) taskIdNodeList.item(0);
+
+                                NodeList taskIdList;
                                 int taskIdInt = -1;
-                                if (taskIdElement == null) {
-
-
-                                    update = new TaskStatus(taskId,
-                                            TaskStatus.TaskStatusValue.ERROR, "ERROR");
-                                } else {
+                                if (taskIdElement == null) update = new TaskStatus(taskId,
+                                        TaskStatus.TaskStatusValue.ERROR, "ERROR");
+                                else {
                                     taskIdList = taskIdElement.getChildNodes();
 
-                                    taskIdInt = Integer.parseInt(((Node) taskIdList.item(0))
+                                    taskIdInt = Integer.parseInt(taskIdList.item(0)
                                             .getNodeValue());
                                     taskObj.setTaskId(taskIdInt);
                                 }
@@ -245,16 +239,15 @@ public class TaskScriptParser {
                                         .getElementsByTagName("TaskName");
                                 Element taskNameElement = (Element) taskNameNodeList
                                         .item(0);
-                                if (taskNameElement == null) {
-                                    update = new TaskStatus(taskId,
-                                            TaskStatus.TaskStatusValue.ERROR, "ERROR");
-                                } else {
+                                if (taskNameElement == null) update = new TaskStatus(taskId,
+                                        TaskStatus.TaskStatusValue.ERROR, "ERROR");
+                                else {
 
                                     NodeList taskNameList = taskNameElement
                                             .getChildNodes();
 
-                                    taskObj.setTaskName(((Node) taskNameList
-                                            .item(0)).getNodeValue());
+                                    taskObj.setTaskName(taskNameList
+                                            .item(0).getNodeValue());
                                 }
 
                                 // --------------
@@ -278,8 +271,8 @@ public class TaskScriptParser {
                                     NodeList outputNameList = outputNameElement
                                             .getChildNodes();
 
-                                    output.setName(((Node) outputNameList
-                                            .item(0))
+                                    output.setName(outputNameList
+                                            .item(0)
                                             .getNodeValue());
 
                                     arrayOutput.add(output);
@@ -307,8 +300,8 @@ public class TaskScriptParser {
                                     NodeList paramNameList = paraNameElement
                                             .getChildNodes();
 
-                                    parameter.setName(((Node) paramNameList
-                                            .item(0))
+                                    parameter.setName(paramNameList
+                                            .item(0)
                                             .getNodeValue());
 
                                     arrayParameter.add(parameter);
@@ -330,12 +323,11 @@ public class TaskScriptParser {
                                             .getChildNodes();
                                     Flag flag = new Flag();
 
-                                    if (((Node) flagList.item(0))
-                                            .getNodeValue() == null) {
-                                        update = new TaskStatus(taskId,
-                                                TaskStatus.TaskStatusValue.ERROR, "ERROR");
-                                    } else {
-                                        flag.setMsg(((Node) flagList.item(0))
+                                    if (flagList.item(0)
+                                            .getNodeValue() == null) update = new TaskStatus(taskId,
+                                            TaskStatus.TaskStatusValue.ERROR, "ERROR");
+                                    else {
+                                        flag.setMsg(flagList.item(0)
                                                 .getNodeValue());
                                         flag.setStatus(Integer.parseInt(flagElement
                                                 .getAttribute("status")));
@@ -363,7 +355,7 @@ public class TaskScriptParser {
 
                                     Element taskInputMapObjElement = (Element) taskInputMapList.item(0);
                                     NodeList taskInputMapObjList = taskInputMapObjElement.getChildNodes();
-                                    String outputFrom = ((Node) taskInputMapObjList.item(0))
+                                    String outputFrom = taskInputMapObjList.item(0)
                                             .getNodeValue();
 
                                     // DstParameterName
@@ -371,7 +363,7 @@ public class TaskScriptParser {
 
                                     taskInputMapObjElement = (Element) taskInputMapList.item(0);
                                     taskInputMapObjList = taskInputMapObjElement.getChildNodes();
-                                    String inputTo = ((Node) taskInputMapObjList.item(0))
+                                    String inputTo = taskInputMapObjList.item(0)
                                             .getNodeValue();
 
                                     // Add SrcOutputName & DstParameterName
@@ -383,17 +375,16 @@ public class TaskScriptParser {
                                     taskInputMapObjElement = (Element) taskInputMapList.item(0);
                                     taskInputMapObjList = taskInputMapObjElement.getChildNodes();
 
-
-                                    taskInputMap.setFromCapabilityId(new Integer(Integer.parseInt(((Node) taskInputMapObjList.item(0))
-                                            .getNodeValue()) + taskIdInt));
+                                    taskInputMap.setFromCapabilityId(Integer.parseInt(taskInputMapObjList.item(0)
+                                            .getNodeValue()) + taskIdInt);
 
                                     // Add SrdId + DstId
 
                                     // this is a hack to get this code to stop crashing because
                                     // taskId is always null.
-                                    if (taskId != null) {
-                                        taskInputMap.setToCapabilityId(new Integer(taskIdInt + taskId.intValue()));
-                                    }
+                                    if (taskId != null)
+
+                                        taskInputMap.setToCapabilityId(taskIdInt + taskId);
 
                                     taskInputMapArrayList.add(taskInputMap);
                                     taskObj.setTaskInputMapArrayList(taskInputMapArrayList);

@@ -109,7 +109,7 @@ public class TaskClientAction extends GizmoAction {
                     taskName,
                     taskDuration,
                     TaskRequester.TASK_CLIENT,
-                    (ConcurrentHashMap<Object, Object>) null,
+                    null,
                     TaskType.SCRIPT_TASK,
                     getScriptsHomeDirectory() + "/" + taskPlan);
 
@@ -221,7 +221,7 @@ public class TaskClientAction extends GizmoAction {
                     .getSession().getAttribute("taskClient");
 
 
-            Float[] point = {new Float(0.0), new Float(0.0)};
+            Float[] point = {0.0f, 0.0f};
 
             if (targetDirection.equals("right")) {
                 System.out.println(
@@ -514,15 +514,10 @@ public class TaskClientAction extends GizmoAction {
         ArrayList<ICapabilityObserver> capabilityObservers =
                 clientObserver.getCapabilityObservers();
 
-        for (int count = 0;
-             count < capabilityObservers.size();
-             count++) {
+        for (ICapabilityObserver anObserver : capabilityObservers) {
 
-            ICapabilityObserver anObserver =
-                    capabilityObservers.get(count);
-			
-			/* Here is the attribute value: a combination of task id 
-			 * and capability id
+            /* Here is the attribute value: a combination of task id
+             * and capability id
 			 */
             String uiElementId = anObserver.getTaskId()
                     + "_x_" + anObserver.getCapabilityId();
@@ -548,7 +543,7 @@ public class TaskClientAction extends GizmoAction {
 		/* An array that represents the [x:right/left,y:up/down]
 		 * direction
 		 */
-        Float[] point = {new Float(0.0), new Float(0.0)};
+        Float[] point = {0.0f, 0.0f};
 
         if (targetDirection.equals("right")) {
             System.out.println(

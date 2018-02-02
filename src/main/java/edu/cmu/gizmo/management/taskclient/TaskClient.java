@@ -236,14 +236,13 @@ public class TaskClient extends Observable
                                     final Iterator<Map.Entry<Object, Object>> entries =
                                             defaultInput.entrySet().iterator();
 
-                                    String route = "";
+                                    StringBuilder route = new StringBuilder();
                                     // send each input parameter to the extending capability
                                     while (entries.hasNext()) {
                                         final Map.Entry<Object, Object> entry =
                                                 entries.next();
 
-                                        route += entry.getKey()
-                                                + "->" + entry.getValue();
+                                        route.append(entry.getKey()).append("->").append(entry.getValue());
                                         defaultInput.remove(fromId);
                                     }
 
@@ -258,14 +257,8 @@ public class TaskClient extends Observable
                         ConcurrentHashMap<Object, Object> settings =
                                 handler.getCapabilitySettings(cid);
 
-                        final Iterator<Map.Entry<Object, Object>> entries =
-                                settings.entrySet().iterator();
-
                         // send each input parameter to the extending capability
-                        while (entries.hasNext()) {
-                            final Map.Entry<Object, Object> entry =
-                                    entries.next();
-
+                        for (Map.Entry<Object, Object> entry : settings.entrySet()) {
                             packet.put(
                                     (String) entry.getKey(),
                                     entry.getValue());
@@ -429,7 +422,7 @@ public class TaskClient extends Observable
                             ROBOT_DASHBOARD,
                             1,
                             REQUESTER_ID,
-                            (ConcurrentHashMap<Object, Object>) null,
+                            null,
                             TaskType.LOGIC_TASK,
                             "dashboard"
                     )
